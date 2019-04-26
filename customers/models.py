@@ -59,7 +59,7 @@ PERSONNEL_TYPE_CHOICES = (
 class Customer(models.Model):
     name = models.CharField(max_length=120)
     contact = models.ForeignKey(to='contact.Contact', related_name='customer_contact', on_delete=models.CASCADE)
-    no = models.CharField(max_length=30)
+    customer_no = models.CharField(max_length=30)
     priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES)
     eco_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
     section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES)
@@ -89,4 +89,7 @@ class Personnel(models.Model):
     contact = models.ForeignKey(to='contact.Contact', related_name='person_contact', on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.name
+        s = self.name+ '(' + self.title + '@' + self.get_location_display() + ':' + self.customer.name + ')' 
+        if self.key_person:
+            s += '(KEY)'
+        return s

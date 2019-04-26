@@ -17,6 +17,9 @@ CONTACT_DETAIL_CHOICES = (
     ('S', _('Site')),
     ('O', _('Office')),
     ('C', _('Postal Code')),
+    ('D', _('Office Address')),
+    ('F', _('Site Address')),
+    ('N', _('National Code')),
     ('H', _('Other')),
 )
 
