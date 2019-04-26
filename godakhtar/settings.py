@@ -41,6 +41,7 @@ DEBUG = env.bool('DJANGO_DEBUG', True)
 
 INSTALLED_APPS = [
     'contact',
+    'customers',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -154,7 +155,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'console': {
-            'format': '📯 [%(levelname)-5s|%(asctime)s|%(name)-12s|%(funcName)s|%(lineno)d] %(message)s',
+            'format': '📯[%(levelname)-5s|%(asctime)s|%(name)-12s|%(funcName)s|%(lineno)d] %(message)s',
         },
     },
     'handlers': {

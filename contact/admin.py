@@ -1,7 +1,16 @@
 from django.contrib import admin
-from contact import models
+from contact.models import Contact, ContactDetail
+
 
 # Register your models here.
-@admin.register(models.Contact)
-class ContactAdmin(admin.ModelAdmin):
-    pass
+class ContactDetailInline(admin.TabularInline):
+    model = ContactDetail
+
+
+@admin.register(Contact)
+class CustomerAdmin(admin.ModelAdmin):
+    inlines = [
+        ContactDetailInline,
+    ]
+
+
