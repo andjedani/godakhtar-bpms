@@ -42,6 +42,7 @@ DEBUG = env.bool('DJANGO_DEBUG', True)
 INSTALLED_APPS = [
     'contact',
     'customers',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

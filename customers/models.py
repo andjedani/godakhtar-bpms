@@ -1,6 +1,9 @@
 from django.db import models
-from contact.models import Contact
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.postgres.fields import ArrayField
+from jsonfield import JSONField
+
+ACQUAINTED_CHOICES = (('A', 'Abbas'), ('B', 'Bagher'))
 
 CUSTOMER_PRIORITY_CHOICES = (
     ('H', 'High'),
@@ -55,22 +58,58 @@ PERSONNEL_TYPE_CHOICES = (
 )
 
 
-# Create your models here.
 class Customer(models.Model):
+
     name = models.CharField(max_length=120)
-    contact = models.ForeignKey(to='contact.Contact', related_name='customer_contact', on_delete=models.CASCADE)
+    # contact = models.ForeignKey(to='contact.Contact', related_name='customer_contact', on_delete=models.CASCADE)
     customer_no = models.CharField(max_length=30)
     priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES)
-    eco_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
+    financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
+    national_id = models.CharField(max_length=20)
+    registration_no = models.CharField(max_length=20)
+    office_address = models.CharField(max_length=255)
+    site_address = models.CharField(max_length=255)
+    postal_code = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20)
+    fax = models.CharField(max_length=20)
+    website = models.CharField(max_length=120)
+    email = models.CharField(max_length=120)
+    ceo = models.CharField(max_length=120)
+    ceo_office = models.CharField(max_length=20)
+    ceo_mobile = models.CharField(max_length=20)
+    ceo_email = models.CharField(max_length=120)
+    cfo = models.CharField(max_length=120)
+    cfo_office = models.CharField(max_length=20)
+    cfo_mobile = models.CharField(max_length=20)
+    cfo_email = models.CharField(max_length=120)
+    logistic = models.CharField(max_length=120)
+    logistic_office = models.CharField(max_length=20)
+    logistic_mobile = models.CharField(max_length=20)
+    logistic_email = models.CharField(max_length=120)
+    engineering = models.CharField(max_length=120)
+    engineering_office = models.CharField(max_length=20)
+    engineering_mobile = models.CharField(max_length=20)
+    engineering_email = models.CharField(max_length=120)
+    expert = models.CharField(max_length=120)
+    expert_office = models.CharField(max_length=20)
+    expert_mobile = models.CharField(max_length=20)
+    expert_email = models.CharField(max_length=120)
+    maintenance_name = models.CharField(max_length=120)
+    maintenance_office = models.CharField(max_length=20)
+    maintenance_mobile = models.CharField(max_length=20)
+    maintenance_email = models.CharField(max_length=120)
+    key_persons = ArrayField(models.CharField(max_length=100, blank=True))
     section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES)
     ownership = models.CharField(max_length=1, choices=OWNERSHIP_CHOICES)
     owner = models.CharField(max_length=100)
     activity = models.CharField(max_length=1, choices=ACTIVITY_CHOICES)
     classification = models.CharField(max_length=1, choices=CUSTOMER_CLASS_CHOICES)
-    channel = models.CharField(max_length=100)
-    buy_type = models.CharField(max_length=100)
-    previous_deal = models.BooleanField()
-    sales_comments = models.TextField()
+    acquainted = models.CharField(max_length=1,choices=ACQUAINTED_CHOICES)
+    deal_type = models.CharField(max_length=100)
+    deal_worth = models.CharField(max_length=100)
+    deal_history = models.BooleanField()
+    inquiry_history = models.BooleanField()
+    deal_comments = models.TextField()
     last_godakhtar_visit = models.DateField()
     last_visit_from_site = models.DateField()
     mechanism = models.CharField(max_length=100)
@@ -79,17 +118,18 @@ class Customer(models.Model):
     def __str__(self):
         return self.name    
 
-
-class Personnel(models.Model):
-    customer = models.ForeignKey(to='Customer', related_name='Customer', on_delete=models.CASCADE)
-    location = models.CharField(max_length=1, choices=PERSONNEL_LOCATION_CHOICES)
-    name = models.CharField(max_length=200, blank=False)
-    title = models.CharField(max_length=200, blank=False)
-    key_person = models.BooleanField()
-    contact = models.ForeignKey(to='contact.Contact', related_name='person_contact', on_delete=models.CASCADE)
-    
-    def __str__(self):
-        s = self.name+ '(' + self.title + '@' + self.get_location_display() + ':' + self.customer.name + ')' 
-        if self.key_person:
-            s += '(KEY)'
-        return s
+#
+# class Personnel(models.Model):
+#     customer = models.ForeignKey(to='Customer', related_name='Customer', on_delete=models.CASCADE)
+#     location = models.CharField(max_length=1, choices=PERSONNEL_LOCATION_CHOICES)
+#     name = models.CharField(max_length=200, blank=False)
+#     title = models.CharField(max_length=200, blank=False)
+#     key_person = models.BooleanField()
+#     contact = models.ForeignKey(to='contact.Contact', related_name='person_contact', on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         s = self.name+ '(' + self.title + '@' + self.get_location_display() + ':' + self.customer.name + ')'
+#         if self.key_person:
+#             s += '(KEY)'
+#         return s
+#
