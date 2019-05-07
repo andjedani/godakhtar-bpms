@@ -40,7 +40,7 @@ DEBUG = env.bool('DJANGO_DEBUG', True)
 # Application definition
 
 INSTALLED_APPS = [
-    'contact',
+    'products',
     'customers',
     'rest_framework',
     'django.contrib.admin',
@@ -176,3 +176,8 @@ LOGGING = {
         },
     },
 }
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+#     'PAGE_SIZE': 10
+# }

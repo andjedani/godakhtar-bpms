@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.postgres.fields import ArrayField
-from jsonfield import JSONField
 
 ACQUAINTED_CHOICES = (('A', 'Abbas'), ('B', 'Bagher'))
 
@@ -59,24 +58,39 @@ PERSONNEL_TYPE_CHOICES = (
 
 
 class Customer(models.Model):
-
-    name = models.CharField(max_length=120)
-    # contact = models.ForeignKey(to='contact.Contact', related_name='customer_contact', on_delete=models.CASCADE)
+    # customerName
+    name = models.CharField(max_length=200, verbose_name=_('Customer Name'))
+    # customerNumber
     customer_no = models.CharField(max_length=30)
+    # customerPriority
     priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES)
+    # financialCode
     financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
+    # nationalId
     national_id = models.CharField(max_length=20)
+    #  companyCode
     registration_no = models.CharField(max_length=20)
+    # officeAddress
     office_address = models.CharField(max_length=255)
+
     site_address = models.CharField(max_length=255)
+    # postalCode
     postal_code = models.CharField(max_length=20)
+    # officeFax
     phone = models.CharField(max_length=20)
+    # officePhone
     fax = models.CharField(max_length=20)
+    # website
     website = models.CharField(max_length=120)
+    # companyEmail
     email = models.CharField(max_length=120)
+    # ceo
     ceo = models.CharField(max_length=120)
+    # ceoOfficePhone
     ceo_office = models.CharField(max_length=20)
+    # ceoCellPhone
     ceo_mobile = models.CharField(max_length=20)
+    # ceoEmail
     ceo_email = models.CharField(max_length=120)
     cfo = models.CharField(max_length=120)
     cfo_office = models.CharField(max_length=20)
@@ -98,7 +112,7 @@ class Customer(models.Model):
     maintenance_office = models.CharField(max_length=20)
     maintenance_mobile = models.CharField(max_length=20)
     maintenance_email = models.CharField(max_length=120)
-    key_persons = ArrayField(models.CharField(max_length=100, blank=True))
+    key_persons = ArrayField(models.CharField(max_length=100, blank=True), blank=True, null=True)
     section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES)
     ownership = models.CharField(max_length=1, choices=OWNERSHIP_CHOICES)
     owner = models.CharField(max_length=100)
