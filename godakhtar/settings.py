@@ -12,20 +12,35 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import environ
+import json
+import logging
+from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
 
-ROOT_DIR = environ.Path(__file__) - 3  # (vertex/config/settings/base.py - 3 = vertex/)
+logger = logging.getLogger(__name__)
+
+ROOT_DIR = environ.Path(__file__) - 3
 
 env = environ.Env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+env_path = os.path.join(BASE_DIR, 'deployment', 'local', 'env.list')
+if os.path.exists(env_path):
+    load_dotenv(env_path)
+
+SETTINGS_DIR = os.path.join(BASE_DIR, 'settings')
+with open(os.path.join(SETTINGS_DIR, 'settings.json'), 'r') as settings_file:
+    SETTINGS_DICT = json.loads(settings_file.read())
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'secret')
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w=zo@1fgxkzbpihjpnavf1l*@yidz88n14cwm)wobwai116s0e'
+# SECRET_KEY =
 
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
@@ -83,18 +98,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'godakhtar.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+# DB settings
+SETTINGS_DICT['postgres']['user'] = os.environ.get('POSTGRES_USER', 'godakhtar')
+SETTINGS_DICT['postgres']['password'] = os.environ.get('POSTGRES_PASSWORD', 'a123B456#')
+SETTINGS_DICT['postgres']['host'] = os.environ.get('DB_HOST', '127.0.0.1')
+SETTINGS_DICT['postgres']['port'] = os.environ.get('DB_PORT', 5432)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'godakhtar',
-        'USER': 'godakhtar',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        'PASSWORD': 'a123B456#'
+        'NAME': SETTINGS_DICT['postgres']['name'],
+        'USER': SETTINGS_DICT['postgres']['user'],
+        'HOST': SETTINGS_DICT['postgres']['host'],
+        'PORT': SETTINGS_DICT['postgres']['port'],
+        'PASSWORD': SETTINGS_DICT['postgres']['password']
     }
 }
 
@@ -181,3 +198,4 @@ LOGGING = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 10
 # }
+
