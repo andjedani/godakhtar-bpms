@@ -1,8 +1,8 @@
 Django==2.2
-django-dotenv==1.4.2
 django-environ==0.4.5
 djangorestframework==3.9.3
 jsonfield==2.0.2
 psycopg2==2.8.2
+python-dotenv==0.10.1
 pytz==2019.1
 sqlparse==0.3.0
