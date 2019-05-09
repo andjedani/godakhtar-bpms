@@ -16,6 +16,7 @@ import json
 import logging
 from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
+from os.path import join, dirname
 
 logger = logging.getLogger(__name__)
 
@@ -25,15 +26,8 @@ env = environ.Env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-env_path = os.path.join(BASE_DIR, 'deployment', 'local', 'env.list')
-if os.path.exists(env_path):
-    load_dotenv(env_path)
-
-SETTINGS_DIR = os.path.join(BASE_DIR, 'settings')
-with open(os.path.join(SETTINGS_DIR, 'settings.json'), 'r') as settings_file:
-    SETTINGS_DICT = json.loads(settings_file.read())
-
+dotenv_path = join(dirname(__file__), '.env')
+load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -99,19 +93,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'godakhtar.wsgi.application'
 
 # DB settings
-SETTINGS_DICT['postgres']['user'] = os.environ.get('POSTGRES_USER', 'godakhtar')
-SETTINGS_DICT['postgres']['password'] = os.environ.get('POSTGRES_PASSWORD', 'a123B456#')
-SETTINGS_DICT['postgres']['host'] = os.environ.get('DB_HOST', '127.0.0.1')
-SETTINGS_DICT['postgres']['port'] = os.environ.get('DB_PORT', 5432)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': SETTINGS_DICT['postgres']['name'],
-        'USER': SETTINGS_DICT['postgres']['user'],
-        'HOST': SETTINGS_DICT['postgres']['host'],
-        'PORT': SETTINGS_DICT['postgres']['port'],
-        'PASSWORD': SETTINGS_DICT['postgres']['password']
+        'NAME':os.environ.get("DATABASE_NAME"),
+        'USER':os.environ.get("DATABASE_USER"),
+        'HOST':os.environ.get("DATABASE_HOST"),
+        'PORT': os.environ.get("DATABASE_PORT"),
+        'PASSWORD': os.environ.get("DATABASE_PASSWORD")
     }
 }
 
