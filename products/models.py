@@ -2,9 +2,9 @@ from django.db import models
 
 
 # Create your models here.
-class Feature(models.model):
+class Feature(models.Model):
     pass
 
 
-class Product(models.model):
+class Product(models.Model):
     pass
