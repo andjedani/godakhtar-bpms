@@ -14,7 +14,6 @@ import os
 import environ
 import json
 import logging
-from dotenv import load_dotenv
 from django.utils.translation import ugettext_lazy as _
 from os.path import join, dirname
 
@@ -22,29 +21,24 @@ logger = logging.getLogger(__name__)
 
 ROOT_DIR = environ.Path(__file__) - 3
 
+environ.Env.read_env('.env')
 env = environ.Env()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'secret')
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY =
 
 # SECURITY WARNING: don't run with debug turned on in production!
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 LANGUAGES = (
     ('en', _('English')),
     ('fa', _('Persian')),
 )
 
-DEBUG = env.bool('DJANGO_DEBUG', True)
+DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
 
 # Application definition
 
@@ -97,9 +91,9 @@ WSGI_APPLICATION = 'godakhtar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.environ.get("DATABASE_NAME"),
-        'USER':os.environ.get("DATABASE_USER"),
-        'HOST':os.environ.get("DATABASE_HOST"),
+        'NAME': os.environ.get("DATABASE_NAME"),
+        'USER': os.environ.get("DATABASE_USER"),
+        'HOST': os.environ.get("DATABASE_HOST"),
         'PORT': os.environ.get("DATABASE_PORT"),
         'PASSWORD': os.environ.get("DATABASE_PASSWORD")
     }
@@ -123,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 
 # Static files (CSS, JavaScript, Images)
@@ -188,4 +181,3 @@ LOGGING = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 10
 # }
-
