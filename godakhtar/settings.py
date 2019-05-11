@@ -36,8 +36,7 @@ LANGUAGES = (
     ('fa', _('Persian')),
 )
 
-DEBUG = os.environ.get('DJANGO_DEBUG') == 'True'
-
+DEBUG = env('DJANGO_DEBUG') == 'True'
 
 INSTALLED_APPS = [
     'products',
