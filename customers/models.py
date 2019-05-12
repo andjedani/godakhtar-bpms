@@ -94,7 +94,7 @@ PERSONNEL_TYPE_CHOICES = (
 class Customer(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Customer Name'))
     customer_no = models.CharField(max_length=30)
-    priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES)
+    priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES, blank=True, null=True)
     financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
     national_id = models.CharField(max_length=20, blank=True, null=True)
     registration_no = models.CharField(max_length=20, blank=True, null=True)
@@ -125,17 +125,17 @@ class Customer(models.Model):
     maintenance_office = models.CharField(max_length=20, blank=True, null=True)
     maintenance_email = models.CharField(max_length=120, blank=True, null=True)
     key_persons = ArrayField(models.CharField(max_length=100, blank=True), blank=True, null=True)
-    section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES)
-    ownership = models.CharField(max_length=1, choices=OWNERSHIP_CHOICES)
+    section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES, blank=True, null=True)
+    ownership = models.CharField(max_length=1, choices=OWNERSHIP_CHOICES, blank=True, null=True)
     owner = models.CharField(max_length=100, blank=True, null=True)
-    activity = models.CharField(max_length=1, choices=ACTIVITY_CHOICES)
-    classification = models.CharField(max_length=1, choices=CUSTOMER_CLASS_CHOICES)
-    acquainted = models.CharField(max_length=1, choices=ACQUAINTED_CHOICES)
-    deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES)
+    activity = models.CharField(max_length=1, choices=ACTIVITY_CHOICES, blank=True, null=True)
+    classification = models.CharField(max_length=1, choices=CUSTOMER_CLASS_CHOICES, blank=True, null=True)
+    acquainted = models.CharField(max_length=1, choices=ACQUAINTED_CHOICES, blank=True, null=True)
+    deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES, blank=True, null=True)
     deal_worth = models.CharField(max_length=127, blank=True, null=True)
-    deal_history = models.CharField(max_length=1, choices=DEAL_HISTORY_CHOICES)
+    deal_history = models.CharField(max_length=1, choices=DEAL_HISTORY_CHOICES, blank=True, null=True)
     deal_comments = models.TextField()
-    inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES)
+    inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES, blank=True, null=True)
     last_godakhtar_visit = models.CharField(max_length=127, blank=True, null=True)
     last_customer_visit = models.CharField(max_length=127, blank=True, null=True)
     mechanism = models.CharField(max_length=100, blank=True, null=True)
@@ -143,19 +143,3 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
-
-    #
-# class Personnel(models.Model):
-#     customer = models.ForeignKey(to='Customer', related_name='Customer', on_delete=models.CASCADE)
-#     location = models.CharField(max_length=1, choices=PERSONNEL_LOCATION_CHOICES)
-#     name = models.CharField(max_length=200, blank=False)
-#     title = models.CharField(max_length=200, blank=False)
-#     key_person = models.BooleanField()
-#     contact = models.ForeignKey(to='contact.Contact', related_name='person_contact', on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         s = self.name+ '(' + self.title + '@' + self.get_location_display() + ':' + self.customer.name + ')'
-#         if self.key_person:
-#             s += '(KEY)'
-#         return s
-#
