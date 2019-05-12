@@ -10,13 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
-import os
-import environ
-import json
 import logging
-from dotenv import load_dotenv
-from django.utils.translation import ugettext_lazy as _
+import os
 from os.path import join, dirname
+
+import environ
+from django.utils.translation import ugettext_lazy as _
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 
@@ -97,14 +97,13 @@ WSGI_APPLICATION = 'godakhtar.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.environ.get("DATABASE_NAME"),
-        'USER':os.environ.get("DATABASE_USER"),
-        'HOST':os.environ.get("DATABASE_HOST"),
+        'NAME': os.environ.get("DATABASE_NAME"),
+        'USER': os.environ.get("DATABASE_USER"),
+        'HOST': os.environ.get("DATABASE_HOST"),
         'PORT': os.environ.get("DATABASE_PORT"),
         'PASSWORD': os.environ.get("DATABASE_PASSWORD")
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -123,8 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
@@ -188,4 +185,3 @@ LOGGING = {
 #     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #     'PAGE_SIZE': 10
 # }
-
