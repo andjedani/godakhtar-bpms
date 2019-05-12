@@ -1,13 +1,37 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.postgres.fields import ArrayField
 
-ACQUAINTED_CHOICES = (('A', 'Abbas'), ('B', 'Bagher'))
+INQUIRY_HISTORY_CHOICES = (
+    ('N', _('No Inquiry')),
+    ('D', _('Has Deal')),
+    ('R', _('Reject'))
+)
+
+DEAL_TYPE_CHOICES = (
+    ('T', _('Gate')),
+    ('G', _('Globe')),
+    ('C', _('Check')),
+    ('O', _('Ball')),
+    ('B', _('Butterfly')),
+    ('R', _('Repair Service')),
+    ('M', _('Maintenance Service')),
+    ('S', _('Spare Parts')),
+    ('H', _('Other'))
+)
+
+ACQUAINTED_CHOICES = (
+    ('E', _('Expo')),
+    ('W', _('Website')),
+    ('R', _('Recommended By Customers')),
+    ('V', _('Vendor List')),
+    ('H', _('Other'))
+)
 
 CUSTOMER_PRIORITY_CHOICES = (
-    ('H', 'High'),
-    ('M', 'Medium'),
-    ('L', 'Low')
+    ('H', _('High')),
+    ('M', _('Medium')),
+    ('L', _('Low'))
 )
 
 CUSTOMER_SECTION_CHOICES = (
@@ -36,8 +60,13 @@ ACTIVITY_CHOICES = (
 )
 
 CUSTOMER_CLASS_CHOICES = (
-    ('1', _('1')),
-    ('2', _('2'))
+    ('G', _('GC')),
+    ('E', _('EPC')),
+    ('F', _('Finance')),
+    ('O', _('Operator')),
+    ('S', _('Store')),
+    ('H', _('Other'))
+
 )
 
 PERSONNEL_LOCATION_CHOICES = (
@@ -55,6 +84,8 @@ PERSONNEL_TYPE_CHOICES = (
     ('S', _('Expert')),
     ('H', _('Other'))
 )
+
+ACQUAINTED_CHOICES
 
 
 class Customer(models.Model):
@@ -81,36 +112,31 @@ class Customer(models.Model):
     # officePhone
     fax = models.CharField(max_length=20)
     # website
-    website = models.CharField(max_length=120)
+    website = models.CharField(max_length=127)
     # companyEmail
-    email = models.CharField(max_length=120)
+    email = models.CharField(max_length=127)
     # ceo
-    ceo = models.CharField(max_length=120)
+    ceo = models.CharField(max_length=127)
     # ceoOfficePhone
     ceo_office = models.CharField(max_length=20)
     # ceoCellPhone
     ceo_mobile = models.CharField(max_length=20)
     # ceoEmail
-    ceo_email = models.CharField(max_length=120)
-    cfo = models.CharField(max_length=120)
+    ceo_email = models.CharField(max_length=127)
+    cfo = models.CharField(max_length=127)
     cfo_office = models.CharField(max_length=20)
-    cfo_mobile = models.CharField(max_length=20)
-    cfo_email = models.CharField(max_length=120)
-    logistic = models.CharField(max_length=120)
+    cfo_email = models.CharField(max_length=127)
+    logistic = models.CharField(max_length=127)
     logistic_office = models.CharField(max_length=20)
-    logistic_mobile = models.CharField(max_length=20)
-    logistic_email = models.CharField(max_length=120)
-    engineering = models.CharField(max_length=120)
+    logistic_email = models.CharField(max_length=127)
+    engineering = models.CharField(max_length=127)
     engineering_office = models.CharField(max_length=20)
-    engineering_mobile = models.CharField(max_length=20)
     engineering_email = models.CharField(max_length=120)
     expert = models.CharField(max_length=120)
     expert_office = models.CharField(max_length=20)
-    expert_mobile = models.CharField(max_length=20)
     expert_email = models.CharField(max_length=120)
     maintenance_name = models.CharField(max_length=120)
     maintenance_office = models.CharField(max_length=20)
-    maintenance_mobile = models.CharField(max_length=20)
     maintenance_email = models.CharField(max_length=120)
     key_persons = ArrayField(models.CharField(max_length=100, blank=True), blank=True, null=True)
     section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES)
@@ -118,21 +144,21 @@ class Customer(models.Model):
     owner = models.CharField(max_length=100)
     activity = models.CharField(max_length=1, choices=ACTIVITY_CHOICES)
     classification = models.CharField(max_length=1, choices=CUSTOMER_CLASS_CHOICES)
-    acquainted = models.CharField(max_length=1,choices=ACQUAINTED_CHOICES)
-    deal_type = models.CharField(max_length=100)
+    acquainted = models.CharField(max_length=1, choices=ACQUAINTED_CHOICES)
+    deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES)
     deal_worth = models.CharField(max_length=100)
     deal_history = models.BooleanField()
-    inquiry_history = models.BooleanField()
     deal_comments = models.TextField()
+    inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES)
     last_godakhtar_visit = models.DateField()
-    last_visit_from_site = models.DateField()
+    last_customer_visit = models.DateField()
     mechanism = models.CharField(max_length=100)
     comments = models.TextField()
-    
-    def __str__(self):
-        return self.name    
 
-#
+    def __str__(self):
+        return self.name
+
+    #
 # class Personnel(models.Model):
 #     customer = models.ForeignKey(to='Customer', related_name='Customer', on_delete=models.CASCADE)
 #     location = models.CharField(max_length=1, choices=PERSONNEL_LOCATION_CHOICES)

@@ -12,41 +12,28 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import logging
 import os
-from os.path import join, dirname
 
 import environ
 from django.utils.translation import ugettext_lazy as _
-from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 
 ROOT_DIR = environ.Path(__file__) - 3
 
+environ.Env.read_env('.env')
 env = environ.Env()
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
+SECRET_KEY = env('DJANGO_SECRET_KEY')
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
-
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'secret')
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY =
-
-# SECURITY WARNING: don't run with debug turned on in production!
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 LANGUAGES = (
     ('en', _('English')),
     ('fa', _('Persian')),
 )
 
-DEBUG = env.bool('DJANGO_DEBUG', True)
-
-# Application definition
+DEBUG = env('DJANGO_DEBUG') == 'True'
 
 INSTALLED_APPS = [
     'products',
@@ -92,21 +79,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'godakhtar.wsgi.application'
 
-# DB settings
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("DATABASE_NAME"),
-        'USER': os.environ.get("DATABASE_USER"),
-        'HOST': os.environ.get("DATABASE_HOST"),
-        'PORT': os.environ.get("DATABASE_PORT"),
-        'PASSWORD': os.environ.get("DATABASE_PASSWORD")
+        'NAME': env("DATABASE_NAME"),
+        'USER': env("DATABASE_USER"),
+        'HOST': env("DATABASE_HOST"),
+        'PORT': env("DATABASE_PORT"),
+        'PASSWORD': env("DATABASE_PASSWORD")
     }
 }
-
-# Password validation
-# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -123,25 +105,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
+STATIC_ROOT = env("STATIC_ROOT")
 
-# Local time zone. Choices are
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# though not all of them may be available with every OS.
-# In Windows, this must be set to your system time zone.
 TIME_ZONE = 'Asia/Tehran'
-# https://docs.djangoproject.com/en/dev/ref/settings/#language-code
 LANGUAGE_CODE = 'fa-IR'
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
-# Internationalization
-# https://docs.djangoproject.com/en/2.0/topics/i18n/
+
 USE_I18N = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-l10n
+
 USE_L10N = True
-# https://docs.djangoproject.com/en/dev/ref/settings/#use-tz
+
 USE_TZ = False
 
 LOCALE_PATHS = (
@@ -180,8 +153,3 @@ LOGGING = {
         },
     },
 }
-
-# REST_FRAMEWORK = {
-#     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-#     'PAGE_SIZE': 10
-# }
