@@ -1,7 +1,11 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+DEAL_HISTORY_CHOICES = (
+    ('Y', _('Yes')),
+    ('N', _('No')),
+    ('Z', _('Zero'))
+)
 INQUIRY_HISTORY_CHOICES = (
     ('N', _('No Inquiry')),
     ('D', _('Has Deal')),
@@ -147,7 +151,7 @@ class Customer(models.Model):
     acquainted = models.CharField(max_length=1, choices=ACQUAINTED_CHOICES)
     deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES)
     deal_worth = models.CharField(max_length=100)
-    deal_history = models.BooleanField()
+    deal_history = models.CharField(max_length=1, choices=DEAL_HISTORY_CHOICES)
     deal_comments = models.TextField()
     inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES)
     last_godakhtar_visit = models.DateField()
