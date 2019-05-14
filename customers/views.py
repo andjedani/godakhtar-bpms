@@ -11,7 +11,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
     def initial(self, request, *args, **kwargs):
         log_data = {
-            'timestamp': datetime.datetime.now().timestamp()
+            'timestamp': datetime.datetime.now().timestamp(),
             'user': request.user.pk,
             'remote_address': request.META['REMOTE_ADDR'],
             'request_method': request.method,
