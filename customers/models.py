@@ -95,7 +95,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Customer Name'))
     customer_no = models.CharField(max_length=30)
     priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES, blank=True, null=True)
-    financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20)
+    financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20, null=True)
     national_id = models.CharField(max_length=20, blank=True, null=True)
     registration_no = models.CharField(max_length=20, blank=True, null=True)
     office_address = models.CharField(max_length=255, blank=True, null=True)
@@ -134,12 +134,12 @@ class Customer(models.Model):
     deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES, blank=True, null=True)
     deal_worth = models.CharField(max_length=127, blank=True, null=True)
     deal_history = models.CharField(max_length=1, choices=DEAL_HISTORY_CHOICES, blank=True, null=True)
-    deal_comments = models.TextField()
+    deal_comments = models.TextField(null=True)
     inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES, blank=True, null=True)
     last_godakhtar_visit = models.CharField(max_length=127, blank=True, null=True)
     last_customer_visit = models.CharField(max_length=127, blank=True, null=True)
     mechanism = models.CharField(max_length=100, blank=True, null=True)
-    comments = models.TextField()
+    comments = models.TextField(null=True)
 
     def __str__(self):
         return self.name

@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 from customers import models,serializers
@@ -10,10 +11,9 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
     def initial(self, request, *args, **kwargs):
         log_data = {
+            'timestamp': datetime.datetime.now().timestamp()
             'user': request.user.pk,
-
             'remote_address': request.META['REMOTE_ADDR'],
-
             'request_method': request.method,
             'request_path': request.get_full_path(),
             'request_body': request.data ,
@@ -23,7 +23,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
         if not os.path.exists('log'):
             os.makedirs('log')
 
-        with open('log/logging.json', 'w') as f:
+        with open('log/log.json', 'a+') as f:
             json.dump(log_data, f, sort_keys=True, indent=4)
         viewsets.ModelViewSet.initial(self, request, *args, **kwargs)
 

@@ -1,10 +1,12 @@
 {
-    "remote_address": "192.168.43.233",
+    "remote_address": "192.168.43.23",
     "request_auth": null,
     "request_body": {
-        "name": "asdasdasd"
+        "customer_no": "123123",
+        "financial_code": "123123",
+        "name": "123123"
     },
-    "request_method": "POST",
+    "request_method": "GET",
     "request_path": "/api/v0/customers/",
     "request_query_params": {},
     "user": null
