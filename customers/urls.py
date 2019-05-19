@@ -2,6 +2,7 @@ from django.urls import include, path
 from django.conf.urls import url
 from rest_framework import routers
 from customers import views
+from django.conf.urls.i18n import i18n_patterns
 
 router = routers.DefaultRouter()
 router.register(r'customers', views.CustomerViewSet)

@@ -124,10 +124,6 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-LANGUAGES = (
-    ('en-us', _('English')),
-    ('fa-IR', _('Persian')),
-)
 
 # Log settings
 
