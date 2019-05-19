@@ -21,5 +21,6 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^jet/', include('jet.urls','jet')),
     url(r'^api/v0/', include(urls)),
 ]

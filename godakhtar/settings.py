@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'customers',
     'rest_framework',
     'corsheaders',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
