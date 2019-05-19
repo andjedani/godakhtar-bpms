@@ -1,4 +1,3 @@
-from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -124,7 +123,6 @@ class Customer(models.Model):
     maintenance_name = models.CharField(max_length=120, blank=True, null=True)
     maintenance_office = models.CharField(max_length=20, blank=True, null=True)
     maintenance_email = models.CharField(max_length=120, blank=True, null=True)
-    key_persons = ArrayField(models.CharField(max_length=100, blank=True), blank=True, null=True)
     section = models.CharField(max_length=1, choices=CUSTOMER_SECTION_CHOICES, blank=True, null=True)
     ownership = models.CharField(max_length=1, choices=OWNERSHIP_CHOICES, blank=True, null=True)
     owner = models.CharField(max_length=100, blank=True, null=True)
@@ -143,3 +141,12 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class KeyPerson(models.Model):
+    name = models.CharField(max_length=127, blank=False)
+    office = models.CharField(max_length=20, blank=True, null=True)
+    mobile = models.CharField(max_length=20, blank=True, null=True)
+    email = models.CharField(max_length=127, blank=True, null=True)
+    comments = models.TextField(null=True)
+    customer = models.ForeignKey(to='Customer', on_delete=models.CASCADE)
