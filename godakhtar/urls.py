@@ -23,5 +23,4 @@ from customers import urls
 urlpatterns = i18n_patterns(
     path('beta-version/', admin.site.urls),
     url(r'^jet/', include('jet.urls', 'jet')),
-    prefix_default_language=False
 )
