@@ -28,10 +28,14 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 
 ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
+LANGUAGE_CODE = 'fa-ir'
+
 LANGUAGES = (
-    ('en', _('English')),
     ('fa', _('Persian')),
+    ('en', _('English'))
 )
+
+LANGUAGES_BIDI = ["fa"]
 
 DEBUG = env('DJANGO_DEBUG') == 'True'
 
@@ -52,14 +56,18 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'godakhtar.middleware.force_default_language_middleware',
+
+    'django.middleware.locale.LocaleMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'godakhtar.urls'
 
@@ -112,7 +120,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = env("STATIC_ROOT")
 
 TIME_ZONE = 'Asia/Tehran'
-LANGUAGE_CODE = 'fa-IR'
 
 USE_I18N = True
 
@@ -152,6 +159,8 @@ LOGGING = {
         },
     },
 }
+APPEND_SLASH = True
+
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
