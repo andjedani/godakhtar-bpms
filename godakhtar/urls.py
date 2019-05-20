@@ -20,6 +20,10 @@ from django.urls import path
 
 from customers import urls
 
+admin.site.site_header = 'GODAKHTAR'
+admin.site.site_title = "GODAKHTAR"
+admin.site.index_title = "GODAKHTAR"
+
 urlpatterns = i18n_patterns(
     path('beta-version/', admin.site.urls),
     url(r'^jet/', include('jet.urls', 'jet')),
