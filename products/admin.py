@@ -1,18 +1,23 @@
 from django.contrib import admin
-from products.models import Description, DescriptionValues, Product
+from products.models import Description, DescriptionValues, Product, ProductType
 
 
 class DescriptionValuesInline(admin.TabularInline):
     model = DescriptionValues
 
 
-class ProductDescriptionAdmin(admin.TabularInline):
-    model = Product.descriptions.through
+class ProductTypeDescriptionAdmin(admin.TabularInline):
+    model = ProductType.descriptions.through
+
+
+@admin.register(ProductType)
+class ProductTypeAdmin(admin.ModelAdmin):
+    inlines = [ProductTypeDescriptionAdmin, ]
+    model = ProductType
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    inlines = [ProductDescriptionAdmin, ]
     list_display = ("product_type", "product_size", "product_class", "product_connection")
     list_filter = ("product_type", "product_size", "product_class", "product_connection")
     search_fields = ("product_type", "product_size", "product_class", "product_connection")
@@ -22,5 +27,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Description)
 class DescriptionAdmin(admin.ModelAdmin):
-    inlines = [DescriptionValuesInline, ProductDescriptionAdmin]
+    inlines = [DescriptionValuesInline, ProductTypeDescriptionAdmin]
     model = Description

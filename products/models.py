@@ -110,13 +110,14 @@ class Description(models.Model):
 
 class ProductType(models.Model):
     name = models.CharField(max_length=9, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Type'))
+    descriptions = models.ManyToManyField(Description)
 
     def __str__(self):
         return self.name
 
 
 class Product(models.Model):
-    product_type = models.ForeignKey()
+    product_type = models.ForeignKey(to="ProductType", on_delete=models.CASCADE)
     product_size = models.CharField(max_length=9, choices=PRODUCT_SIZE_CHOICES, verbose_name=_('Size'))
     product_class = models.CharField(max_length=9, choices=PRODUCT_CLASS_CHOICES, verbose_name=_('Class'))
     product_connection = models.CharField(max_length=22, choices=PRODUCT_CONNECTION_CHOICES,
@@ -128,7 +129,6 @@ class Product(models.Model):
     operation = models.CharField(max_length=9, choices=PRODUCT_OPERATION_CHOICES,
                                  verbose_name=_('Operation'))
 
-    descriptions = models.ManyToManyField(Description)
 
     def __str__(self):
         return self.product_type
