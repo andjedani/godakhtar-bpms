@@ -18,7 +18,6 @@ from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from django.urls import path
 
-from customers import urls
 
 admin.site.site_header = 'GODAKHTAR'
 admin.site.site_title = "GODAKHTAR"
