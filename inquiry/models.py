@@ -46,5 +46,3 @@ class DescriptionType(models.Model):
     name = models.CharField(max_length=64)
     type = models.CharField(max_length=1, choices=DESCRIPTION_TYPE_CHOICES)
     allowed_values = fields.ArrayField(models.CharField(max_length=127, null=False, blank=False), null=True, blank=True)
-=======
->>>>>>> 77f626d1f26ed846c8f3a21abe4f266aafc27976
