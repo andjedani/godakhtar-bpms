@@ -132,12 +132,12 @@ class Customer(models.Model):
     deal_type = models.CharField(max_length=1, choices=DEAL_TYPE_CHOICES, blank=True, null=True)
     deal_worth = models.CharField(max_length=127, blank=True, null=True)
     deal_history = models.CharField(max_length=1, choices=DEAL_HISTORY_CHOICES, blank=True, null=True)
-    deal_comments = models.TextField(null=True)
+    deal_comments = models.TextField(null=True, blank=True)
     inquiry_history = models.CharField(max_length=1, choices=INQUIRY_HISTORY_CHOICES, blank=True, null=True)
     last_godakhtar_visit = models.CharField(max_length=127, blank=True, null=True)
     last_customer_visit = models.CharField(max_length=127, blank=True, null=True)
     mechanism = models.CharField(max_length=100, blank=True, null=True)
-    comments = models.TextField(null=True)
+    comments = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
