@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import ugettext_lazy as _
 
 PRODUCT_TYPE_CHOICES = (
@@ -96,29 +95,9 @@ PRODUCT_OPERATION_CHOICES = (
 )
 
 
-class DescriptionValues(models.Model):
-    value = models.CharField(max_length=127)
-    description = models.ForeignKey(to='Description',on_delete=models.CASCADE)
-
-
-class Description(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-
-class ProductType(models.Model):
-    name = models.CharField(max_length=9, choices=PRODUCT_TYPE_CHOICES, verbose_name=_('Type'))
-    descriptions = models.ManyToManyField(Description)
-
-    def __str__(self):
-        return self.name
-
-
 class Product(models.Model):
-    product_type = models.ForeignKey(to="ProductType", on_delete=models.CASCADE)
-    product_size = models.CharField(max_length=9, choices=PRODUCT_SIZE_CHOICES, verbose_name=_('Size'))
+    product_type = models.CharField(max_length=9, choices=PRODUCT_TYPE_CHOICES)
+    # product_size = models.CharField(max_length=9, choices=PRODUCT_SIZE_CHOICES, verbose_name=_('Size'))
     product_class = models.CharField(max_length=9, choices=PRODUCT_CLASS_CHOICES, verbose_name=_('Class'))
     product_connection = models.CharField(max_length=22, choices=PRODUCT_CONNECTION_CHOICES,
                                           verbose_name=_('Connection'))
@@ -128,7 +107,6 @@ class Product(models.Model):
                                      verbose_name=_('Trim Material'))
     operation = models.CharField(max_length=9, choices=PRODUCT_OPERATION_CHOICES,
                                  verbose_name=_('Operation'))
-
 
     def __str__(self):
         return self.product_type

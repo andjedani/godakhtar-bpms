@@ -68,7 +68,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'godakhtar.urls'
 
 TEMPLATES = [
@@ -131,7 +130,6 @@ LOCALE_PATHS = (
     os.path.join(BASE_DIR, 'locale'),
 )
 
-
 # Log settings
 
 LOGGING = {
@@ -160,7 +158,6 @@ LOGGING = {
     },
 }
 APPEND_SLASH = True
-
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
