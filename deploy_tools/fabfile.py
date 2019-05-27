@@ -49,7 +49,7 @@ def _update_static_files():
 
 
 def _update_translations_files():
-    run('../venv/bin/python manage.py compilemessages --noinput')
+    run('../venv/bin/python manage.py compilemessages')
 
 
 def _update_database():
