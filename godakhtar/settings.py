@@ -40,10 +40,7 @@ LANGUAGES_BIDI = ["fa"]
 DEBUG = env('DJANGO_DEBUG') == 'True'
 
 INSTALLED_APPS = [
-    'products',
-    'customers',
-    'rest_framework',
-    'corsheaders',
+    'jet.dashboard',
     'jet',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,6 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'products',
+    'customers',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -74,7 +75,7 @@ ROOT_URLCONF = 'godakhtar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,11 +84,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
             ],
         },
     },
 ]
-
 WSGI_APPLICATION = 'godakhtar.wsgi.application'
 
 DATABASES = {
@@ -118,6 +121,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATIC_URL = '/static/'
 STATIC_ROOT = env("STATIC_ROOT")
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 TIME_ZONE = 'Asia/Tehran'
 
@@ -171,3 +178,18 @@ CORS_ORIGIN_REGEX_WHITELIST = (
     r"^https://\w+\.example\.com$",
     '0.0.0.0:8000',
 )
+
+
+JET_DEFAULT_THEME = 'light-gray'
+JET_THEMES = [
+    {
+        'theme': 'light-gray',
+        'color': '#222',
+        'title': 'خاکستری'
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'سبز'
+    }
+]

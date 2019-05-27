@@ -248,8 +248,4 @@ tags
 # Persistent undo
 [._]*.un~
 
-# End of https://www.gitignore.io/api/vim,venv,django,pycharm
-admin/
-jet/
-rest_framework/
-range_filter/
+.vscode

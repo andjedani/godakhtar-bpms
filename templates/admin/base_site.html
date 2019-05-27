@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %} 
+{% load static i18n %} 
+{% load staticfiles %}
+
+{% block branding %}
+{{ block.super}}
+
+<div>
+  <div>
+    <img id="site-logo" src="{% static 'img/logo.svg' %}"/>
+  </div>
+
+  <h1 id="site-name">
+    </span> {% trans "GODAKHTAR" %}
+  </h1>
+</div>
+{% endblock %} 
+
+{% block extrastyle %}
+{{ block.super }}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/base_site.css' %}">
+
+{% endblock %}
