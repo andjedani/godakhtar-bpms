@@ -23,7 +23,10 @@
 
 {% block extrastyle %}
 {{ block.super }}
-
+{% get_current_language as LANGUAGE_CODE %}
+{% if LANGUAGE_CODE == "fa" %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base_site_fa.css' %}">
+{% endif %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/base_site.css' %}">
 
 {% endblock %}

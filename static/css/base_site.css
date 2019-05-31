@@ -10,20 +10,10 @@
   top: 1.5em !important;
 }
 
-/* .sidebar {
-  left: unset;
-  transition: background-color 0.3s, -webkit-transform 0.3s;
-  transition: background-color 0.3s, transform 0.3s;
-  transition: background-color 0.3s, transform 0.3s, -webkit-transform 0.3s;
-  -webkit-transform: translate3d(100%, 0, 0);
-  transform: translate3d(100%, 0, 0);
-} */
-
-/* .sidebar-container-toggle {
-  float: right;
-  padding: 0.71429rem 1.42857rem 0 0.71429rem;
+.dashboard-tools {
+  display: none;
 }
 
-.user-tools ul li.user-tools-welcome-msg {
-  right: 2em;
-} */
+.dashboard-tools-toggle-container {
+  display: none !important;
+}
