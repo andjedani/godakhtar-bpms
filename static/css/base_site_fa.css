@@ -79,3 +79,7 @@ body.login #container {
   float: left;
   line-height: unset;
 }
+
+input[type="checkbox"] + label::before {
+  padding: 5px;
+}
