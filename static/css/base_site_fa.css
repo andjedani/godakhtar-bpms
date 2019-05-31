@@ -69,3 +69,13 @@ div.breadcrumbs.initialized {
 body.login #container {
   padding: unset;
 }
+
+.form-row {
+  display: flex;
+}
+
+.inline-related h3 span.delete label:before,
+.inline-related h3 .inline-deletelink label:before {
+  float: left;
+  line-height: unset;
+}
