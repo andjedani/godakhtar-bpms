@@ -176,8 +176,6 @@ CORS_ORIGIN_REGEX_WHITELIST = (
     '0.0.0.0:8000',
 )
 
-JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
-
 JET_DEFAULT_THEME = 'light-gray'
 JET_THEMES = [
     {

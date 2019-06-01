@@ -46,3 +46,40 @@ div.breadcrumbs.initialized {
 .user-tools ul li.user-tools-welcome-msg:before {
   float: left;
 }
+
+.form-row > div {
+  display: flex;
+}
+
+.changeform-navigation {
+  display: flex !important;
+  flex-direction: row-reverse;
+  float: right;
+}
+
+.object-tools {
+  text-align: left;
+}
+
+.deletelink::before {
+  float: left;
+  line-height: unset;
+}
+
+body.login #container {
+  padding: unset;
+}
+
+.form-row {
+  display: flex;
+}
+
+.inline-related h3 span.delete label:before,
+.inline-related h3 .inline-deletelink label:before {
+  float: left;
+  line-height: unset;
+}
+
+input[type="checkbox"] + label::before {
+  padding: 5px;
+}
