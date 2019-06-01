@@ -66,7 +66,7 @@ CUSTOMER_CLASS_CHOICES = (
     ('g', _('GC')),
     ('e', _('EPC')),
     ('f', _('Trader')),
-    ('o', _('Operator')),
+    ('o', _('End User')),
     ('s', _('Store')),
     ('h', _('Other'))
 
@@ -175,7 +175,7 @@ class Customer(models.Model):
             if same_customers:
                 serial = int(same_customers[0].customer_no[2:])+1
 
-            customer_no_draft = customer_no_draft + f'{serial:3}'.replace(' ','0')
+            customer_no_draft = customer_no_draft.toUpper() + f'{serial:3}'.replace(' ','0')
             self.customer_no = customer_no_draft
             super().save()
 

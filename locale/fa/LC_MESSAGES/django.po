@@ -207,11 +207,11 @@ msgstr "نیمه خصوصی"
 
 #: customers/models.py:59
 msgid "End User"
-msgstr ""
+msgstr "بهره‌بردار"
 
 #: customers/models.py:60
 msgid "Contractor"
-msgstr "قراردادی"
+msgstr "پیمانکار"
 
 #: customers/models.py:61
 msgid "Consultant"
