@@ -100,7 +100,7 @@ class Customer(models.Model):
     english_name = models.CharField(max_length=200, verbose_name=_('English Name'), unique=True)
     customer_no = models.CharField(max_length=30, null=True, blank=True, unique=True)
     priority = models.CharField(max_length=1, choices=CUSTOMER_PRIORITY_CHOICES, blank=True, null=True)
-    financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20, null=True, unique=True)
+    financial_code = models.CharField(verbose_name=_('Economical Number'), max_length=20, null=True, blank=True, unique=True)
     national_id = models.CharField(max_length=20, blank=True, null=True, unique=True)
     registration_no = models.CharField(max_length=20, blank=True, null=True)
     office_address = models.CharField(max_length=255, blank=True, null=True)
