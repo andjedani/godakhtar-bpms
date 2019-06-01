@@ -175,7 +175,7 @@ class Customer(models.Model):
             if same_customers:
                 serial = int(same_customers[0].customer_no[2:])+1
 
-            customer_no_draft = customer_no_draft.toUpper() + f'{serial:3}'.replace(' ','0')
+            customer_no_draft = customer_no_draft.upper() + f'{serial:3}'.replace(' ','0')
             self.customer_no = customer_no_draft
             super().save()
 
