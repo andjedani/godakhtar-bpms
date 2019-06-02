@@ -1,0 +1,19 @@
+#site-logo {
+  width: 7em;
+}
+
+#branding-menu {
+  top: 2em !important;
+}
+
+#branding-pin {
+  top: 1.5em !important;
+}
+
+.dashboard-tools {
+  display: none;
+}
+
+.dashboard-tools-toggle-container {
+  display: none !important;
+}
