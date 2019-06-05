@@ -27,7 +27,7 @@ class CustomerSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Customer
-        fields = ("name", "english_name", "customer_no",
+        fields = ("id", "name", "english_name", "customer_no",
                   "financial_code", "national_id", "registration_no",
                   "classification", "activity", "customer_size", "priority",
                   "oil_section", "gas_section", "pertrochemical_section", "refinery_section", "plant_section",
@@ -43,3 +43,10 @@ class CustomerSerializer(serializers.ModelSerializer):
                   "acquainted_recommended",
                   "last_godakhtar_visit", "last_customer_visit",
                   "comments", "verified", "branchs", "personnel", "key_persons")
+
+
+class CustomerShortListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ("id", "name", "english_name", "customer_no", "classification",
+                  "activity", "customer_size", "priority",)

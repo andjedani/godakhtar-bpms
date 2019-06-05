@@ -1,9 +1,31 @@
 import datetime
 import json
 import os
-from products import models, serializers
-from rest_framework import viewsets
+
 from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+import tools
+from products import models, serializers
+
+
+@api_view(['GET',])
+def product_types(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        serializer = tools.serializers.ChoicesSerializer(models.Product.PRODUCT_TYPE_CHOICES, many=True)
+        return Response(serializer.data)
+
+    # elif request.method == 'POST':
+    #     serializer = SnippetSerializer(data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class AttributeViewSet(viewsets.ModelViewSet):

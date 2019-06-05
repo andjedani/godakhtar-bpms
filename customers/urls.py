@@ -3,10 +3,8 @@ from django.conf.urls import url
 from rest_framework import routers
 from customers import views
 
-router = routers.DefaultRouter()
-router.register(r'customers', views.CustomerViewSet)
-
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    url(r'^', views.CustomerViewSet.as_view({'get': 'list'})),
+    url(r'^short/', views.CustomerShortListSet.as_view({'get': 'list'})),
     # TODO: Endpoint for list of customers : id, name, english_name, customer_no, section
 ]

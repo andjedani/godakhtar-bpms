@@ -1,17 +1,11 @@
 from django.conf.urls import url
-from django.urls import include
-from rest_framework import routers
 
 from products import views
 
-product_attributes = views.AttributeViewSet.as_view({'get': 'retrieve'})
-
-router = routers.DefaultRouter()
-router.register(r'^', views.ProductViewSet)
-router.register(r'^attributes', views.AttributeViewSet)
-
 urlpatterns = [
-    url(r'', include(router.urls)),
+    url(r'^', views.ProductViewSet.as_view({'get': 'list'})),
+    url(r'^types/', views.product_types, name='product-types'),
+    url(r'^attributes/', views.AttributeViewSet.as_view({'get': 'list'}), name='attributes'),
     url(r'^(?P<product_id>[0-9])/attributes/?$',
-        product_attributes, name='get-product-attribute'),
+        views.AttributeViewSet.as_view({'get': 'retrieve'}), name='get-product-attribute'),
 ]

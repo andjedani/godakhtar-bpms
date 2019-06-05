@@ -18,15 +18,21 @@ def has_english_letters(line):
 
 
 def clean_up_lower(text):
-    result = text.lower().strip()
-    return result
+    if text:
+        result = text.lower().strip()
+        return result
+    return text
 
 
 def clean_up(text):
-    result = text.strip()
-    return result
+    if text:
+        result = text.strip()
+        return result
+    return text
 
 
 def clean_up_alpha_numeric(text):
-    result = text.strip()
-    return result
+    if text:
+        result = text.strip()
+        return result
+    return text
