@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from tools import utils
 
 DEAL_HISTORY_CHOICES = (
     ('y', _('Yes')),
@@ -90,8 +91,8 @@ class Customer(models.Model):
     national_id = models.CharField(verbose_name=_('National ID'), max_length=20, blank=True, null=True, unique=True)
     registration_no = models.CharField(verbose_name=_('Registration Number'), max_length=20, blank=True, null=True)
     postal_code = models.CharField(verbose_name=_('Postal Code'), max_length=20, blank=True, null=True, unique=True)
-    website = models.CharField(verbose_name=_('Website address'), max_length=127, blank=True, null=True)
-    email = models.CharField(verbose_name=_('email address'), max_length=127, blank=True, null=True)
+    website = models.URLField(verbose_name=_('Website address'), max_length=127, blank=True, null=True)
+    email = models.EmailField(verbose_name=_('email address'), max_length=127, blank=True, null=True)
     customer_size = models.CharField(max_length=1, choices=CUSTOMER_SIZE_CHOICES, blank=False, null=False)
     oil_section = models.BooleanField(default=False, verbose_name=_('Oil'))
     gas_section = models.BooleanField(default=False, verbose_name=_('Gas'))
@@ -131,6 +132,18 @@ class Customer(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
+        self.email = utils.clean_up_lower(self.email)
+        self.website = utils.clean_up_lower(self.website)
+        self.name = utils.clean_up(self.name)
+        self.english_name = utils.clean_up(self.english_name)
+        self.owner = utils.clean_up(self.owner)
+        self.deal_comments = utils.clean_up(self.deal_comments)
+        self.comments = utils.clean_up(self.comments)
+        self.national_id = utils.clean_up_alpha_numeric(self.national_id)
+        self.postal_code = utils.clean_up_alpha_numeric(self.postal_code)
+        self.registration_no = utils.clean_up_alpha_numeric(self.registration_no)
+        self.financial_code = utils.clean_up_alpha_numeric(self.financial_code)
+
         if not self.pk:
             customer_no_draft = self.classification + self.customer_size
             same_customers = Customer.objects.filter(classification=self.classification,
@@ -141,7 +154,8 @@ class Customer(models.Model):
 
             customer_no_draft = customer_no_draft.upper() + f'{serial:3}'.replace(' ', '0')
             self.customer_no = customer_no_draft
-            super().save()
+
+        super().save()
 
     def __str__(self):
         return self.name
@@ -163,18 +177,30 @@ class Personnel(models.Model):
     role = models.CharField(max_length=2, choices=PERSONNEL_TYPE_CHOICES, blank=False)
     office_phone = models.CharField(max_length=20, blank=True, null=True)
     mobile = models.CharField(max_length=20, blank=True, null=True)
-    email = models.CharField(max_length=127, blank=True, null=True)
+    email = models.EmailField(max_length=127, blank=True, null=True)
     comments = models.CharField(max_length=255, null=True, blank=True)
-    customer = models.ForeignKey(to='Customer', on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='personnel')
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower().strip()
+        if self.email == "":
+            self.email = None
+        super().save()
 
 
 class KeyPerson(models.Model):
     name = models.CharField(max_length=127, blank=False)
     office = models.CharField(max_length=20, blank=True, null=True)
     mobile = models.CharField(max_length=20, blank=True, null=True)
-    email = models.CharField(max_length=127, blank=True, null=True)
+    email = models.EmailField(max_length=127, blank=True, null=True)
     comments = models.CharField(max_length=255, blank=True, null=True)
-    customer = models.ForeignKey(to='Customer', on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='key_persons')
+
+    def save(self, *args, **kwargs):
+        self.email = self.email.lower().strip()
+        if self.email == "":
+            self.email = None
+        super().save()
 
 
 BRANCH_TYPE_CHOICES = (
@@ -192,4 +218,5 @@ class Branch(models.Model):
     postal_code = models.CharField(verbose_name=_('Postal Code'), max_length=20, blank=True, null=True, unique=True)
     phone = models.CharField(verbose_name=_('Phone Number'), max_length=20, blank=True, null=True)
     fax = models.CharField(verbose_name=_('Fax Number'), max_length=20, blank=True, null=True)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='branchs')
+
