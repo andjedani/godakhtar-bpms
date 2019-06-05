@@ -781,4 +781,58 @@
     "request_query_params": {},
     "timestamp": 1559734660.379119,
     "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/products/",
+    "request_query_params": {},
+    "timestamp": 1559739131.537828,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/products/",
+    "request_query_params": {},
+    "timestamp": 1559740103.753734,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/customers/",
+    "request_query_params": {},
+    "timestamp": 1559740115.199786,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/customers/customers/",
+    "request_query_params": {},
+    "timestamp": 1559746000.70024,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/customers/customers/",
+    "request_query_params": {},
+    "timestamp": 1559746056.198436,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/customers/customers/",
+    "request_query_params": {},
+    "timestamp": 1559746508.551965,
+    "user": 1
 }

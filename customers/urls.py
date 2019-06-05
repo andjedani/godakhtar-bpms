@@ -8,4 +8,5 @@ router.register(r'customers', views.CustomerViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
+    # TODO: Endpoint for list of customers : id, name, english_name, customer_no, section
 ]

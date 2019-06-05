@@ -10,5 +10,6 @@ urlpatterns = i18n_patterns(
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     url(r'^beta-version/', admin.site.urls),
-    url(r'^api/', include('customers.urls')),
+    url(r'^api/customers/', include('customers.urls')),
+    url(r'^api/products/', include('products.urls')),
 )

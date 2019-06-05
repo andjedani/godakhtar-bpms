@@ -19,7 +19,7 @@ class Attribute(models.Model):
 
 
 class AttributeChoices(models.Model):
-    attribute = models.ForeignKey(Attribute, on_delete=models.CASCADE)
+    attribute = models.ForeignKey(Attribute, on_delete=models.CASCADE, related_name='attribute_choices')
     value = models.CharField(max_length=63, null=False, blank=False, verbose_name=_('Attribute Value'))
 
 
@@ -82,7 +82,8 @@ class Product(models.Model):
     product_class = models.CharField(max_length=6, choices=PRODUCT_CLASS_CHOICES, verbose_name=_('Class'))
     product_connection = models.CharField(max_length=3, choices=PRODUCT_CONNECTION_CHOICES,
                                           verbose_name=_('Connection'))
-    available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'))
+    available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'),
+                                                  related_name='product')
 
     class Meta:
         unique_together = ('product_type', 'product_class', 'product_connection', 'product_size')
