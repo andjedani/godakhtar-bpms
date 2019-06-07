@@ -174,7 +174,7 @@ CORS_ORIGIN_WHITELIST = (
 CORS_ORIGIN_REGEX_WHITELIST = (
     r"^https://\w+\.example\.com$",
     '0.0.0.0:8000',
-    'dashboard.cuterhino.com',
+    'http://dashboard.cuterhino.com'
 )
 
 JET_DEFAULT_THEME = 'light-gray'
