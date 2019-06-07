@@ -170,11 +170,11 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8000',
+    'http://dashboard.cuterhino.com'
 )
 CORS_ORIGIN_REGEX_WHITELIST = (
     r"^https://\w+\.example\.com$",
     '0.0.0.0:8000',
-    'http://dashboard.cuterhino.com'
 )
 
 JET_DEFAULT_THEME = 'light-gray'
