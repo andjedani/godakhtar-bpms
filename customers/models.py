@@ -176,15 +176,17 @@ class Personnel(models.Model):
     name = models.CharField(max_length=127, blank=False)
     role = models.CharField(max_length=2, choices=PERSONNEL_TYPE_CHOICES, blank=False)
     office_phone = models.CharField(max_length=20, blank=True, null=True)
+    fax = models.CharField(max_length=20, blank=True, null=True)
     mobile = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField(max_length=127, blank=True, null=True)
     comments = models.CharField(max_length=255, null=True, blank=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='personnel')
 
     def save(self, *args, **kwargs):
-        self.email = self.email.lower().strip()
-        if self.email == "":
-            self.email = None
+        if self.email:
+            self.email = self.email.lower().strip()
+            if self.email == "":
+                self.email = None
         super().save()
 
 
@@ -197,9 +199,10 @@ class KeyPerson(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='key_persons')
 
     def save(self, *args, **kwargs):
-        self.email = self.email.lower().strip()
-        if self.email == "":
-            self.email = None
+        if self.email:
+            self.email = self.email.lower().strip()
+            if self.email == "":
+                self.email = None
         super().save()
 
 

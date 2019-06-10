@@ -1170,4 +1170,247 @@
     "request_query_params": {},
     "timestamp": 1559751081.761385,
     "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/p%D8%B4%D9%84%D8%A8roduct_types/",
+    "request_query_params": {},
+    "timestamp": 1559753062.904218,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/p%D8%B4%D9%84%D8%A8roduct_types/",
+    "request_query_params": {},
+    "timestamp": 1559753063.763038,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/types/",
+    "request_query_params": {},
+    "timestamp": 1559753072.635559,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753091.49388,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753202.277171,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753206.636588,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753220.805628,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753222.729435,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753223.041338,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753223.268879,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/customers/",
+    "request_query_params": {},
+    "timestamp": 1559753237.878962,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/",
+    "request_query_params": {},
+    "timestamp": 1559753253.964065,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/",
+    "request_query_params": {},
+    "timestamp": 1559753335.926947,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/",
+    "request_query_params": {},
+    "timestamp": 1559753336.642867,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/",
+    "request_query_params": {},
+    "timestamp": 1559753336.942645,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753340.350939,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753344.475454,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753390.076331,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753390.731712,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/",
+    "request_query_params": {},
+    "timestamp": 1559753392.930566,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/attributes/fasdf",
+    "request_query_params": {},
+    "timestamp": 1559753395.285578,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/fdsfa4/attributes/fasdf",
+    "request_query_params": {},
+    "timestamp": 1559753398.886434,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/list/",
+    "request_query_params": {},
+    "timestamp": 1559753587.50976,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/list/",
+    "request_query_params": {},
+    "timestamp": 1560147161.792243,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products//",
+    "request_query_params": {},
+    "timestamp": 1560147210.275445,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/",
+    "request_query_params": {},
+    "timestamp": 1560147227.326238,
+    "user": 1
+}{
+    "remote_address": "127.0.0.1",
+    "request_auth": null,
+    "request_body": {},
+    "request_method": "GET",
+    "request_path": "/fa/api/v0/products/4/",
+    "request_query_params": {},
+    "timestamp": 1560147243.621169,
+    "user": 1
 }
