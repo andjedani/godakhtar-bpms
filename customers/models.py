@@ -82,7 +82,7 @@ CUSTOMER_SIZE_CHOICES = (
 
 class Customer(models.Model):
     name = models.CharField(max_length=200, verbose_name=_('Customer Name'), unique=True)
-    english_name = models.CharField(max_length=200, verbose_name=_('English Name'), unique=True)
+    english_name = models.CharField(max_length=200, verbose_name=_('English Name'), unique=True, null=True, blank=True)
     customer_no = models.CharField(verbose_name=_('Customer Number'), max_length=30, null=True, blank=True, unique=True)
     priority = models.CharField(verbose_name=_('Priority'), max_length=1, choices=CUSTOMER_PRIORITY_CHOICES, blank=True,
                                 null=True)
