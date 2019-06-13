@@ -42,6 +42,12 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = models.Product.objects
     serializer_class = serializers.ProductSerializer
 
+    def get_object(self):
+        product_name = self.kwargs.get('product_name', None)
+        if product_name:
+            return get_object_or_404(models.Collection, product_name=product_name )
+        return super().get_object()
+
     def initial(self, request, *args, **kwargs):
         log_data = {
             'timestamp': datetime.datetime.now().timestamp(),

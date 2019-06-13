@@ -84,25 +84,15 @@ class Product(models.Model):
                                           verbose_name=_('Connection'))
     available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'),
                                                   related_name='product', blank=True)
+    product_name = models.CharField(max_length=12, verbose_name=_('Product Name'), null=True, blank=True)
 
     class Meta:
         unique_together = ('product_type', 'product_class', 'product_connection', 'product_size')
 
-    @property
-    def product_name(self):
-        return ''.join([self.product_type, self.product_class, self.product_connection, self.product_size])
-
     def __str__(self):
         return self.product_name
 
-    # def save(self, force_insert=False, force_update=False, using=None,
-    #          update_fields=None):
-    #     if not self.pk:
-    #         same_products = len(Product.objects.filter(product_type=self.product_type,
-    #                                                    product_connection=self.product_connection,
-    #                                                    product_class=self.product_class,
-    #                                                    product_size=self.product_size))
-    #         if same_products > 0:
-    #             raise ValidationError("Product Already Exists")
-    #         
-    #         super().save()
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.product_name = ''.join([self.product_type, self.product_class, self.product_connection, self.product_size])
+        super().save()
