@@ -83,7 +83,7 @@ class Product(models.Model):
     product_connection = models.CharField(max_length=3, choices=PRODUCT_CONNECTION_CHOICES,
                                           verbose_name=_('Connection'))
     available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'),
-                                                  related_name='product')
+                                                  related_name='product', blank=True)
 
     class Meta:
         unique_together = ('product_type', 'product_class', 'product_connection', 'product_size')
