@@ -19,7 +19,7 @@ class AttributeAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ("product_name", "product_type", "product_class", "product_connection")
-    list_filter = ("product_type", "product_class", "product_connection")
+    list_filter = ("product_type", "product_class", "product_connection", "product_name")
     search_fields = ("product_type", "product_class", "product_connection")
     fields = ("product_name",
               ("product_type", "product_class"),
