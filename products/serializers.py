@@ -17,6 +17,8 @@ class AttributeSerializer(serializers.ModelSerializer):
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    available_attributes = AttributeSerializer(read_only=True, many=True)
+
     class Meta:
         model = Product
         fields = '__all__'
