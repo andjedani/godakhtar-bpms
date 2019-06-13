@@ -17,3 +17,7 @@
 .dashboard-tools-toggle-container {
   display: none !important;
 }
+
+fieldset .field-box {
+  border: dotted;
+}
