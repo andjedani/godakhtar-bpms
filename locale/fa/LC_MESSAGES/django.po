@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-01 02:25+0430\n"
+"POT-Creation-Date: 2019-06-13 21:41+0430\n"
 "PO-Revision-Date: 2017-05-25 12:30+0430\n"
 "Last-Translator: Pyzenberg <pyzenberg@gmail.com>\n"
 "Language-Team: \n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Customer"
 msgstr "مشتری"
 
-#: contact/models.py:7 contact/models.py:18 customers/models.py:76
+#: contact/models.py:7 contact/models.py:18 customers/models.py:211
 msgid "Office"
 msgstr "دفتر"
 
@@ -38,7 +38,7 @@ msgstr "تلفن همراه"
 msgid "E-Mail"
 msgstr "ایمیل"
 
-#: contact/models.py:13
+#: contact/models.py:13 customers/models.py:220
 msgid "Address"
 msgstr "آدرس"
 
@@ -54,11 +54,11 @@ msgstr "محل‌کار"
 msgid "Fax"
 msgstr "فکس"
 
-#: contact/models.py:17 customers/models.py:78
+#: contact/models.py:17 customers/models.py:212
 msgid "Site"
 msgstr "وب‌سایت"
 
-#: contact/models.py:19
+#: contact/models.py:19 customers/models.py:93 customers/models.py:221
 msgid "Postal Code"
 msgstr "کد پستی"
 
@@ -74,218 +74,242 @@ msgstr "آدرس وب‌سایت"
 msgid "National Code"
 msgstr "کد ملی"
 
-#: contact/models.py:23 customers/models.py:22 customers/models.py:31
-#: customers/models.py:48 customers/models.py:55 customers/models.py:62
-#: customers/models.py:71 customers/models.py:79 customers/models.py:88
-#: customers/models.py:140 customers/models.py:148 customers/models.py:157
+#: contact/models.py:23 customers/models.py:23 customers/models.py:32
+#: customers/models.py:49 customers/models.py:56 customers/models.py:63
+#: customers/models.py:72 customers/models.py:104 customers/models.py:112
+#: customers/models.py:121 customers/models.py:171 customers/models.py:213
 msgid "Other"
 msgstr "سایر"
 
-#: customers/models.py:5
+#: customers/models.py:6
 msgid "Yes"
 msgstr "بلی"
 
-#: customers/models.py:6
+#: customers/models.py:7
 msgid "No"
 msgstr "خیر"
 
-#: customers/models.py:9
+#: customers/models.py:10
 msgid "No Inquiry"
 msgstr "سفارشی وجود ندارد"
 
-#: customers/models.py:10
+#: customers/models.py:11
 msgid "Has Deal"
 msgstr "قرارداد بوده‌است"
 
-#: customers/models.py:11
+#: customers/models.py:12
 msgid "Reject"
 msgstr "قرارداد منعقد نشد"
 
-#: customers/models.py:15 customers/models.py:150
+#: customers/models.py:16 customers/models.py:114
 msgid "Gate"
 msgstr ""
 
-#: customers/models.py:16 customers/models.py:151 products/models.py:11
+#: customers/models.py:17 customers/models.py:115 products/models.py:40
 msgid "Globe"
 msgstr ""
 
-#: customers/models.py:17 customers/models.py:152
+#: customers/models.py:18 customers/models.py:116
 msgid "Check"
 msgstr ""
 
-#: customers/models.py:18 customers/models.py:153
+#: customers/models.py:19 customers/models.py:117
 msgid "Ball"
 msgstr ""
 
-#: customers/models.py:19 customers/models.py:154
+#: customers/models.py:20 customers/models.py:118
 msgid "Butterfly"
 msgstr ""
 
-#: customers/models.py:20 customers/models.py:155
+#: customers/models.py:21 customers/models.py:119
 msgid "Repair Service"
 msgstr "خدمات تعمیرات"
 
-#: customers/models.py:21 customers/models.py:156
+#: customers/models.py:22 customers/models.py:120
 msgid "Spare Parts"
 msgstr "لوازم یدکی"
 
-#: customers/models.py:23 customers/models.py:158
+#: customers/models.py:24 customers/models.py:122
 msgid "Maintenance Service"
 msgstr "خدمات نگهداری"
 
-#: customers/models.py:27 customers/models.py:145
+#: customers/models.py:28 customers/models.py:109
 msgid "Expo"
 msgstr "نمایشگاه"
 
-#: customers/models.py:28 customers/models.py:146
-#, fuzzy
-#| msgid "View site"
+#: customers/models.py:29 customers/models.py:110
 msgid "Website"
 msgstr "نمایش سایت"
 
-#: customers/models.py:29 customers/models.py:147
+#: customers/models.py:30 customers/models.py:111
 msgid "Vendor List"
 msgstr "وندورلیست"
 
-#: customers/models.py:30 customers/models.py:149
+#: customers/models.py:31 customers/models.py:113
 msgid "Recommended By Customers"
 msgstr "پیشنهاد توسط مشتری"
 
-#: customers/models.py:35
+#: customers/models.py:36
 msgid "High"
 msgstr "بالا"
 
-#: customers/models.py:36 customers/models.py:93
+#: customers/models.py:37 customers/models.py:78
 msgid "Medium"
 msgstr "متوسط"
 
-#: customers/models.py:37
+#: customers/models.py:38
 msgid "Low"
 msgstr "پایین"
 
-#: customers/models.py:41 customers/models.py:133
+#: customers/models.py:42 customers/models.py:97
 msgid "Oil"
 msgstr "نفت"
 
-#: customers/models.py:42 customers/models.py:134
+#: customers/models.py:43 customers/models.py:98
 msgid "Gas"
 msgstr "گاز"
 
-#: customers/models.py:43 customers/models.py:135
+#: customers/models.py:44 customers/models.py:99
 msgid "Pertrochemical"
 msgstr "پتروشیمی"
 
-#: customers/models.py:44 customers/models.py:136
+#: customers/models.py:45 customers/models.py:100
 msgid "Refinery"
 msgstr "پالایشگاه"
 
-#: customers/models.py:45 customers/models.py:137
+#: customers/models.py:46 customers/models.py:101
 msgid "Plant"
-msgstr ""
+msgstr "کارخانه"
 
-#: customers/models.py:46 customers/models.py:138
-#, fuzzy
-#| msgid "Connection"
+#: customers/models.py:47 customers/models.py:102
 msgid "Construction"
-msgstr "اتصال"
+msgstr "ساختمان"
 
-#: customers/models.py:47 customers/models.py:139
+#: customers/models.py:48 customers/models.py:103
 msgid "Steel"
-msgstr ""
+msgstr "فولاد"
 
-#: customers/models.py:52
+#: customers/models.py:53
 msgid "Private"
 msgstr "خصوصی"
 
-#: customers/models.py:53
+#: customers/models.py:54
 msgid "Government"
 msgstr "دولتی"
 
-#: customers/models.py:54
+#: customers/models.py:55
 msgid "Semi-Private"
 msgstr "نیمه خصوصی"
 
-#: customers/models.py:59
+#: customers/models.py:60 customers/models.py:70
 msgid "End User"
 msgstr "بهره‌بردار"
 
-#: customers/models.py:60
+#: customers/models.py:61
 msgid "Contractor"
 msgstr "پیمانکار"
 
-#: customers/models.py:61
+#: customers/models.py:62
 msgid "Consultant"
 msgstr "مشاوره"
 
-#: customers/models.py:66
+#: customers/models.py:67
 msgid "GC"
 msgstr ""
 
-#: customers/models.py:67
+#: customers/models.py:68
 msgid "EPC"
 msgstr ""
 
-#: customers/models.py:68
-msgid "Trader"
-msgstr ""
-
 #: customers/models.py:69
-msgid "Operator"
-msgstr "اوپراتور"
+msgid "Trader"
+msgstr "بازرگانی"
 
-#: customers/models.py:70
+#: customers/models.py:71
 msgid "Store"
 msgstr "فروشگاه"
 
 #: customers/models.py:77
-msgid "Central Office"
-msgstr "دفتر مرکزی"
+msgid "Small"
+msgstr "کوچک"
 
-#: customers/models.py:82
-msgid "CEO"
-msgstr "مدیرعامل"
-
-#: customers/models.py:83
-msgid "CFO"
-msgstr "مدیر مالی"
+#: customers/models.py:79
+msgid "Large"
+msgstr "بزرگ"
 
 #: customers/models.py:84
-msgid "CTO"
-msgstr "مدیر فنی"
-
-#: customers/models.py:85
-msgid "Engineering Manager"
-msgstr "مدیر مهندسی"
-
-#: customers/models.py:86
-msgid "Maintenance Manager"
-msgstr "مدیر نگهداری"
-
-#: customers/models.py:87
-msgid "Expert"
-msgstr "کارشناس"
-
-#: customers/models.py:92
-msgid "Small"
-msgstr ""
-
-#: customers/models.py:94
-msgid "Large"
-msgstr ""
-
-#: customers/models.py:99
 msgid "Customer Name"
 msgstr "نام مشتری"
 
-#: customers/models.py:100
-#, fuzzy
-#| msgid "English"
+#: customers/models.py:85
 msgid "English Name"
-msgstr "انگلیسی"
+msgstr "نام مشتری به انگلیسی"
 
-#: customers/models.py:103
+#: customers/models.py:86
+msgid "Customer Number"
+msgstr "شماره مشتری"
+
+#: customers/models.py:87
+msgid "Priority"
+msgstr "اولویت"
+
+#: customers/models.py:89
 msgid "Economical Number"
 msgstr "کد اقتصادی"
+
+#: customers/models.py:91
+msgid "National ID"
+msgstr "کد ملی"
+
+#: customers/models.py:92
+msgid "Registration Number"
+msgstr "شماره ثبت"
+
+#: customers/models.py:94
+msgid "Website address"
+msgstr "آدرس وب‌سایت"
+
+#: customers/models.py:95
+msgid "email address"
+msgstr "آدرس ایمیل"
+
+#: customers/models.py:165
+msgid "CEO"
+msgstr "مدیرعامل"
+
+#: customers/models.py:166
+msgid "CFO"
+msgstr "مدیر مالی"
+
+#: customers/models.py:167
+msgid "CTO"
+msgstr "مدیر فنی"
+
+#: customers/models.py:168
+msgid "Engineering Manager"
+msgstr "مدیر مهندسی"
+
+#: customers/models.py:169
+msgid "Maintenance Manager"
+msgstr "مدیر نگهداری"
+
+#: customers/models.py:170
+msgid "Expert"
+msgstr "کارشناس"
+
+#: customers/models.py:210
+msgid "Headquarters"
+msgstr "دفتر مرکزی"
+
+#: customers/models.py:222
+#, fuzzy
+#| msgid "Economical Number"
+msgid "Phone Number"
+msgstr "کد اقتصادی"
+
+#: customers/models.py:223
+msgid "Fax Number"
+msgstr "فکس"
 
 #: godakhtar/settings.py:34
 msgid "Persian"
@@ -295,829 +319,557 @@ msgstr "فارسی"
 msgid "English"
 msgstr "انگلیسی"
 
-#: inquiry/models.py:4
-msgid "1/4"
-msgstr "۱/۴"
-
-#: inquiry/models.py:4
-msgid "1/2"
-msgstr "۱/۲"
-
-#: inquiry/models.py:4
-msgid "3/4"
-msgstr "۳/۴"
-
-#: inquiry/models.py:4
-msgid "1"
-msgstr "۱"
-
-#: inquiry/models.py:5
-msgid "1 1/2"
-msgstr "۱ ۱/۲"
-
-#: inquiry/models.py:5
-msgid "2"
-msgstr "۲"
-
-#: inquiry/models.py:5
-msgid "2 1/2"
-msgstr "۲ ۱/۲"
-
-#: inquiry/models.py:5
-msgid "3"
-msgstr "۳"
-
-#: inquiry/models.py:6
-msgid "4"
-msgstr "۴"
-
-#: inquiry/models.py:6
-msgid "5"
-msgstr "۵"
-
-#: inquiry/models.py:6
-msgid "6"
-msgstr "۶"
-
-#: inquiry/models.py:6
-msgid "8"
-msgstr "۸"
-
-#: inquiry/models.py:7
-msgid "10"
-msgstr "۱۰"
-
-#: inquiry/models.py:7
-msgid "12"
-msgstr "۱۲"
-
-#: inquiry/models.py:7
-msgid "14"
-msgstr "۱۴"
-
-#: inquiry/models.py:7
-msgid "16"
-msgstr "۱۶"
-
-#: inquiry/models.py:8
-msgid "18"
-msgstr "۱۸"
-
-#: inquiry/models.py:8
-msgid "20"
-msgstr "۲۰"
-
-#: inquiry/models.py:8
-msgid "22"
-msgstr "۲۲"
-
-#: inquiry/models.py:8
-msgid "24"
-msgstr "۲۴"
-
-#: inquiry/models.py:9
-msgid "26"
-msgstr "۲۶"
-
-#: inquiry/models.py:9
-msgid "28"
-msgstr "۲۸"
-
-#: inquiry/models.py:9
-msgid "30"
-msgstr "۳۰"
-
-#: inquiry/models.py:9
-msgid "32"
-msgstr "۳۲"
-
-#: inquiry/models.py:10
-msgid "34"
-msgstr "۳۴"
-
-#: inquiry/models.py:10
-msgid "36"
-msgstr "۳۶"
-
-#: inquiry/models.py:10
-msgid "38"
-msgstr "۳۸"
-
-#: inquiry/models.py:10
-msgid "40"
-msgstr "۴۰"
-
-#: inquiry/models.py:11
-msgid "42"
-msgstr "۴۲"
-
-#: inquiry/models.py:11
-msgid "44"
-msgstr "۴۴"
-
-#: inquiry/models.py:11
-msgid "46"
-msgstr "۴۶"
-
-#: inquiry/models.py:11
-msgid "48"
-msgstr "۴۸"
-
-#: inquiry/models.py:12
-msgid "50"
-msgstr "۵۰"
-
-#: inquiry/models.py:12
-msgid "52"
-msgstr "۵۲"
-
-#: inquiry/models.py:12
-msgid "54"
-msgstr "۵۴"
-
-#: inquiry/models.py:12
-msgid "56"
-msgstr "۵۶"
-
-#: inquiry/models.py:13
-msgid "58"
-msgstr "۵۸"
-
-#: inquiry/models.py:13
-msgid "60"
-msgstr "۶۰"
-
-#: inquiry/models.py:13
-msgid "62"
-msgstr "۶۲"
-
-#: inquiry/models.py:13
-msgid "64"
-msgstr "۶۴"
-
-#: inquiry/models.py:14
-msgid "66"
-msgstr "۶۶"
-
-#: inquiry/models.py:14
-msgid "68"
-msgstr "۶۸"
-
-#: inquiry/models.py:14
-msgid "70"
-msgstr "۷۰"
-
-#: inquiry/models.py:14
-msgid "72"
-msgstr "۷۲"
-
-#: inquiry/models.py:15
-msgid "74"
-msgstr "۷۴"
-
-#: inquiry/models.py:15
-msgid "76"
-msgstr "۷۶"
-
-#: inquiry/models.py:15
-msgid "78"
-msgstr "۷۸"
-
-#: inquiry/models.py:15
-msgid "80"
-msgstr "۸۰"
-
-#: inquiry/models.py:16
-msgid "82"
-msgstr "۸۲"
-
-#: inquiry/models.py:16
-msgid "84"
-msgstr "۸۴"
-
-#: inquiry/models.py:16
-msgid "86"
-msgstr "۸۶"
-
-#: inquiry/models.py:16
-msgid "88"
-msgstr "۸۸"
-
-#: inquiry/models.py:17
-msgid "90"
-msgstr "۹۰"
-
-#: inquiry/models.py:17
-msgid "92"
-msgstr "۹۲"
-
-#: inquiry/models.py:17
-msgid "94"
-msgstr "۹۴"
-
-#: inquiry/models.py:17
-msgid "96"
-msgstr "۹۶"
-
-#: inquiry/models.py:18
-msgid "98"
-msgstr "۹۸"
-
-#: inquiry/models.py:18
-msgid "100"
-msgstr "۱۰۰"
-
-#: inquiry/models.py:19
-msgid "1*1/2"
-msgstr "۱ X ۱/۲"
-
-#: inquiry/models.py:19
-msgid "2*1"
-msgstr "۲ X 1"
-
-#: inquiry/models.py:19
-msgid "3*2"
-msgstr "۳ X ۲"
-
-#: inquiry/models.py:20
-msgid "4*3"
-msgstr "۴ X ۳"
-
-#: inquiry/models.py:20
-msgid "6*4"
-msgstr "۶ X ۴"
-
-#: inquiry/models.py:20
-msgid "8*6"
-msgstr "۸ X ۶"
-
-#: inquiry/models.py:20
-msgid "10*8"
-msgstr "۱۰ X ۸"
-
-#: inquiry/models.py:21
-msgid "12*10"
-msgstr "۱۲ X ۱۰"
-
-#: inquiry/models.py:21
-msgid "14*10"
-msgstr "۱۴ X ۱۰"
-
-#: inquiry/models.py:21
-msgid "16*12"
-msgstr "۱۶ X ۱۲"
-
-#: inquiry/models.py:21
-msgid "18*14"
-msgstr "۱۸ X ۱۴"
-
-#: inquiry/models.py:22
-msgid "20*16"
-msgstr "۲۰ X ۱۶ "
-
-#: inquiry/models.py:22
-msgid "22*18"
-msgstr "۲۲ X ۱۸"
-
-#: inquiry/models.py:22
-msgid "24*20"
-msgstr "۲۴ X ۲۰"
-
-#: inquiry/models.py:22
-msgid "26*22"
-msgstr "۲۶ X ۲۲"
-
-#: inquiry/models.py:23
-msgid "28*24"
-msgstr "۲۸ X ۲۴"
-
-#: inquiry/models.py:23
-msgid "30*26"
-msgstr "۳۰ X ۲۶"
-
-#: inquiry/models.py:23
-msgid "32*26"
-msgstr "۳۲ X ۲۶"
-
-#: inquiry/models.py:23
-msgid "34*28"
-msgstr "۳۴ X ۲۸"
-
-#: inquiry/models.py:24
-msgid "36*30"
-msgstr "۳۶ X ۳۰"
-
-#: inquiry/models.py:24
-msgid "38*32"
-msgstr "۳۸ X ۳۲"
-
-#: inquiry/models.py:24
-msgid "40*34"
-msgstr "۴۰ X ۳۴"
-
-#: inquiry/models.py:24
-msgid "42*36"
-msgstr "۴۲ X ۳۶"
-
-#: inquiry/models.py:25
-msgid "44*38"
-msgstr "۴۴ X ۳۸"
-
-#: inquiry/models.py:25
-msgid "46*40"
-msgstr "۴۶ X ۴۰"
-
-#: inquiry/models.py:25
-msgid "48*42"
-msgstr "۴۸ X ۴۲"
-
-#: inquiry/models.py:25
-msgid "50*44"
-msgstr "۵۰ X ۴۴"
-
-#: inquiry/models.py:26
-msgid "52*46"
-msgstr "۵۲ X ۴۶"
-
-#: inquiry/models.py:26
-msgid "54*48"
-msgstr "۵۴ X ۴۸"
-
-#: inquiry/models.py:26
-msgid "56*50"
-msgstr "۵۶ X ۵۰"
-
-#: inquiry/models.py:26
-msgid "58*52"
-msgstr "۵۸ X ۵۲"
-
-#: inquiry/models.py:27
-msgid "60*54"
-msgstr "۶۰ X ۵۴"
-
-#: inquiry/models.py:39
-msgid "WCB"
-msgstr ""
-
-#: inquiry/models.py:39
-msgid "A105"
-msgstr ""
-
-#: inquiry/models.py:39
-msgid "SS304"
-msgstr ""
-
-#: inquiry/models.py:39 inquiry/models.py:50
-msgid "SS316"
-msgstr ""
-
-#: inquiry/models.py:39
-msgid "CF8"
-msgstr ""
-
-#: inquiry/models.py:40
-msgid "CF3"
-msgstr ""
-
-#: inquiry/models.py:40
-msgid "CF8M"
-msgstr ""
-
-#: inquiry/models.py:40
-msgid "CF3M"
-msgstr ""
-
-#: inquiry/models.py:40
-msgid "CF8C"
-msgstr ""
-
-#: inquiry/models.py:40
-msgid "LCB"
-msgstr ""
-
-#: inquiry/models.py:41
-msgid "LCC"
-msgstr ""
-
-#: inquiry/models.py:41
-msgid "Al-Bronz"
-msgstr ""
-
-#: inquiry/models.py:41
-msgid "WCC"
-msgstr ""
-
-#: inquiry/models.py:41
-msgid "WC9"
-msgstr ""
-
-#: inquiry/models.py:41
-msgid "WC6"
-msgstr ""
-
-#: inquiry/models.py:42
-msgid "C5"
-msgstr ""
-
-#: inquiry/models.py:42
-msgid "C12"
-msgstr ""
-
-#: inquiry/models.py:42
-msgid "Cast Iron"
-msgstr ""
-
-#: inquiry/models.py:42
-msgid "Inconel"
-msgstr ""
-
-#: inquiry/models.py:42
-msgid "Monel"
-msgstr ""
-
-#: inquiry/models.py:43
-msgid "Hatelloy"
-msgstr ""
-
-#: inquiry/models.py:43
-msgid "A351-CK3MCuN"
-msgstr ""
-
-#: inquiry/models.py:43
-msgid "A351-CD4MCu"
-msgstr ""
-
-#: inquiry/models.py:44
-msgid "A890-1A"
-msgstr ""
-
-#: inquiry/models.py:44
-msgid "A890-4A"
-msgstr ""
-
-#: inquiry/models.py:48
-msgid "WCB + ENP"
-msgstr ""
-
-#: inquiry/models.py:48
-msgid "A105 + ENP"
-msgstr ""
-
-#: inquiry/models.py:48
-msgid "LF2+ENP"
-msgstr ""
-
-#: inquiry/models.py:49
-msgid "SS316+TC"
-msgstr ""
-
-#: inquiry/models.py:50
-msgid "410"
-msgstr ""
-
-#: inquiry/models.py:51
-msgid "Overlay Trim No. #1"
-msgstr ""
-
-#: inquiry/models.py:51
-msgid "Overlay Trim No. #2"
-msgstr ""
-
-#: inquiry/models.py:52
-msgid "Overlay Trim No. #3"
-msgstr ""
-
-#: inquiry/models.py:52
-msgid "Overlay Trim No. #4"
-msgstr ""
-
-#: inquiry/models.py:53
-msgid "Overlay Trim No. #5"
-msgstr ""
-
-#: inquiry/models.py:53
-msgid "Overlay Trim No. #5A"
-msgstr ""
-
-#: inquiry/models.py:54
-msgid "Overlay Trim No. #6"
-msgstr ""
-
-#: inquiry/models.py:54
-msgid "Overlay Trim No. #7"
-msgstr ""
-
-#: inquiry/models.py:55
-msgid "Overlay Trim No. #8"
-msgstr ""
-
-#: inquiry/models.py:55
-msgid "Overlay Trim No. #8A"
-msgstr ""
-
-#: inquiry/models.py:56
-msgid "Overlay Trim No. #9"
-msgstr ""
-
-#: inquiry/models.py:56
-msgid "Overlay Trim No. #10"
-msgstr ""
-
-#: inquiry/models.py:57
-msgid "Overlay Trim No. #11"
-msgstr ""
-
-#: inquiry/models.py:57
-msgid "Overlay Trim No. #12"
-msgstr ""
-
-#: inquiry/models.py:58
-msgid "Overlay Trim No. #13"
-msgstr ""
-
-#: inquiry/models.py:58
-msgid "Overlay Trim No. #14"
-msgstr ""
-
-#: inquiry/models.py:59
-msgid "Overlay Trim No. #15"
-msgstr ""
-
-#: inquiry/models.py:59
-msgid "Overlay Trim No. #16"
-msgstr ""
-
-#: inquiry/models.py:60
-msgid "Overlay Trim No. #17"
-msgstr ""
-
-#: inquiry/models.py:60
-msgid "Overlay Trim No. #18"
-msgstr ""
-
-#: inquiry/models.py:65
-msgid "Body Material"
-msgstr "جنس بنده"
-
-#: inquiry/models.py:67
-msgid "Trim Material"
-msgstr ""
-
-#: inquiry/models.py:71
-msgid "Single Choice"
-msgstr ""
-
-#: inquiry/models.py:72
-msgid "Multiple Choices"
-msgstr ""
-
-#: inquiry/models.py:73
+#: products/models.py:8
 msgid "Numeric"
-msgstr ""
+msgstr "عددی"
 
-#: products/models.py:6
-msgid "3 Way Ball Valve"
-msgstr ""
+#: products/models.py:9
+msgid "Choices"
+msgstr "انتخاب"
 
-#: products/models.py:6
+#: products/models.py:10
+msgid "Text"
+msgstr "متن"
+
+#: products/models.py:12
+msgid "Attribute Name"
+msgstr "نام ویژگی"
+
+#: products/models.py:14
+msgid "Attribute Choices"
+msgstr "انتخاب ویژگی"
+
+#: products/models.py:15
+msgid "Validator"
+msgstr "اعتبار سنجی"
+
+#: products/models.py:23
+msgid "Attribute Value"
+msgstr "مقدار ویژگی"
+
+#: products/models.py:28
 msgid "Ball Valve"
 msgstr ""
 
-#: products/models.py:6
+#: products/models.py:29
 msgid "Bellowse Gate Valve"
 msgstr ""
 
-#: products/models.py:7
+#: products/models.py:30
 msgid "Bellowse Globe Valve"
 msgstr ""
 
-#: products/models.py:7
+#: products/models.py:31
 msgid "Butterfly valve"
 msgstr ""
 
-#: products/models.py:7
+#: products/models.py:32
 msgid "Check Valve"
 msgstr ""
 
-#: products/models.py:8
+#: products/models.py:33
 msgid "Cryogenic Ball Valve"
 msgstr ""
 
-#: products/models.py:8
+#: products/models.py:34 products/models.py:35
 msgid "Cryogenic Butterfly Valve"
 msgstr ""
 
-#: products/models.py:9
+#: products/models.py:36
 msgid "Cryogenic Check Valve"
 msgstr ""
 
-#: products/models.py:9
+#: products/models.py:37
 msgid "Cryogenic Gate Valve"
 msgstr ""
 
-#: products/models.py:10
+#: products/models.py:38
 msgid "Cryogenic Globe Valve"
 msgstr ""
 
-#: products/models.py:10
+#: products/models.py:39
 msgid "Gate Valve"
 msgstr ""
 
-#: products/models.py:11
+#: products/models.py:41
 msgid "Knife Gate Valve"
 msgstr ""
 
-#: products/models.py:12
+#: products/models.py:42
 msgid "Plug Valve"
 msgstr ""
 
-#: products/models.py:12
+#: products/models.py:43
 msgid "Through Conduit Gate Valve"
 msgstr ""
 
-#: products/models.py:17
+#: products/models.py:46
 msgid "125"
 msgstr "۱۲۵"
 
-#: products/models.py:17
+#: products/models.py:46
 msgid "150"
 msgstr "۱۵۰"
 
-#: products/models.py:17
+#: products/models.py:46
 msgid "200"
 msgstr "۲۰۰"
 
-#: products/models.py:18
+#: products/models.py:47
 msgid "250"
 msgstr "۲۵۰"
 
-#: products/models.py:18
+#: products/models.py:47
 msgid "300"
 msgstr "۳۰۰"
 
-#: products/models.py:18
+#: products/models.py:47
 msgid "400"
 msgstr "۴۰۰"
 
-#: products/models.py:18
+#: products/models.py:47
 msgid "600"
 msgstr "۶۰۰"
 
-#: products/models.py:19
+#: products/models.py:48
 msgid "800"
 msgstr "۸۰۰"
 
-#: products/models.py:19
+#: products/models.py:48
 msgid "900"
 msgstr "۹۰۰"
 
-#: products/models.py:19
+#: products/models.py:48
 msgid "1500"
 msgstr "۱۵۰۰"
 
-#: products/models.py:19
+#: products/models.py:48
 msgid "2500"
 msgstr "۲۵۰۰"
 
-#: products/models.py:20
+#: products/models.py:49
 msgid "3000"
 msgstr "۳۰۰۰"
 
-#: products/models.py:20
+#: products/models.py:49
 msgid "4500"
 msgstr "۴۵۰۰"
 
-#: products/models.py:20
+#: products/models.py:49
 msgid "5000"
 msgstr "۵۰۰۰"
 
-#: products/models.py:20
+#: products/models.py:49
 msgid "10000"
 msgstr "۱۰۰۰۰"
 
-#: products/models.py:21
+#: products/models.py:50
 msgid "PN10"
 msgstr ""
 
-#: products/models.py:21
+#: products/models.py:50
 msgid "PN16"
 msgstr ""
 
-#: products/models.py:21
+#: products/models.py:50
 msgid "PN20"
 msgstr ""
 
-#: products/models.py:21
+#: products/models.py:50
 msgid "PN50"
 msgstr ""
 
-#: products/models.py:24
-msgid "Flange / RF"
+#: products/models.py:53
+msgid "Flange"
 msgstr ""
 
-#: products/models.py:24
-msgid "Flange / FF"
+#: products/models.py:54
+msgid "Wafer"
 msgstr ""
 
-#: products/models.py:25
-msgid "Flange / RTJ"
-msgstr ""
-
-#: products/models.py:25
-msgid "Flange / Large Femal"
-msgstr ""
-
-#: products/models.py:26
-msgid "Flange / Large Mal"
-msgstr ""
-
-#: products/models.py:26
-msgid "Grove Flange"
-msgstr ""
-
-#: products/models.py:27
-msgid "Wafer / RF"
-msgstr ""
-
-#: products/models.py:27
-msgid "Wafer / FF"
-msgstr ""
-
-#: products/models.py:28
+#: products/models.py:55
 msgid "Butt weld"
 msgstr ""
 
-#: products/models.py:28
+#: products/models.py:56
 msgid "Socket Weld"
 msgstr ""
 
-#: products/models.py:29
+#: products/models.py:57
 msgid "Scrowed"
 msgstr ""
 
-#: products/models.py:29
+#: products/models.py:58
 msgid "Threaded"
 msgstr ""
 
-#: products/models.py:29
+#: products/models.py:59
 msgid "Lug"
 msgstr ""
 
-#: products/models.py:30
-msgid "Semi Lug"
-msgstr ""
+#: products/models.py:61
+msgid "1/4"
+msgstr "۱/۴"
 
-#: products/models.py:30
-msgid "SW / Thrd"
-msgstr ""
+#: products/models.py:61
+msgid "1/2"
+msgstr "۱/۲"
 
-#: products/models.py:34
-msgid "Gear Operated"
-msgstr ""
+#: products/models.py:61
+msgid "3/4"
+msgstr "۳/۴"
 
-#: products/models.py:34
-msgid "Lever Operated"
-msgstr ""
+#: products/models.py:61
+msgid "1"
+msgstr "۱"
 
-#: products/models.py:35
-msgid "Electrical Actuator"
-msgstr ""
+#: products/models.py:62
+msgid "1 1/2"
+msgstr "۱ ۱/۲"
 
-#: products/models.py:35
-msgid "Pnumatic Actuator"
-msgstr ""
+#: products/models.py:62
+msgid "2"
+msgstr "۲"
 
-#: products/models.py:36
-msgid "Gas Over Oil Actuator"
-msgstr ""
+#: products/models.py:62
+msgid "2 1/2"
+msgstr "۲ ۱/۲"
 
-#: products/models.py:36
-msgid "Bare Shaft"
-msgstr ""
+#: products/models.py:62
+msgid "3"
+msgstr "۳"
 
-#: products/models.py:37
-msgid "Handwheel"
-msgstr ""
+#: products/models.py:63
+msgid "4"
+msgstr "۴"
 
-#: products/models.py:37
-msgid "Electrical Actuator with master station(MOV)"
-msgstr ""
+#: products/models.py:63
+msgid "5"
+msgstr "۵"
 
-#: products/models.py:44
+#: products/models.py:63
+msgid "6"
+msgstr "۶"
+
+#: products/models.py:63
+msgid "8"
+msgstr "۸"
+
+#: products/models.py:64
+msgid "10"
+msgstr "۱۰"
+
+#: products/models.py:64
+msgid "12"
+msgstr "۱۲"
+
+#: products/models.py:64
+msgid "14"
+msgstr "۱۴"
+
+#: products/models.py:64
+msgid "16"
+msgstr "۱۶"
+
+#: products/models.py:65
+msgid "18"
+msgstr "۱۸"
+
+#: products/models.py:65
+msgid "20"
+msgstr "۲۰"
+
+#: products/models.py:65
+msgid "22"
+msgstr "۲۲"
+
+#: products/models.py:65
+msgid "24"
+msgstr "۲۴"
+
+#: products/models.py:66
+msgid "26"
+msgstr "۲۶"
+
+#: products/models.py:66
+msgid "28"
+msgstr "۲۸"
+
+#: products/models.py:66
+msgid "30"
+msgstr "۳۰"
+
+#: products/models.py:66
+msgid "32"
+msgstr "۳۲"
+
+#: products/models.py:67
+msgid "34"
+msgstr "۳۴"
+
+#: products/models.py:67
+msgid "36"
+msgstr "۳۶"
+
+#: products/models.py:67
+msgid "38"
+msgstr "۳۸"
+
+#: products/models.py:67
+msgid "40"
+msgstr "۴۰"
+
+#: products/models.py:68
+msgid "42"
+msgstr "۴۲"
+
+#: products/models.py:68
+msgid "44"
+msgstr "۴۴"
+
+#: products/models.py:68
+msgid "46"
+msgstr "۴۶"
+
+#: products/models.py:68
+msgid "48"
+msgstr "۴۸"
+
+#: products/models.py:69
+msgid "50"
+msgstr "۵۰"
+
+#: products/models.py:69
+msgid "52"
+msgstr "۵۲"
+
+#: products/models.py:69
+msgid "54"
+msgstr "۵۴"
+
+#: products/models.py:69
+msgid "56"
+msgstr "۵۶"
+
+#: products/models.py:70
+msgid "58"
+msgstr "۵۸"
+
+#: products/models.py:70
+msgid "60"
+msgstr "۶۰"
+
+#: products/models.py:70
+msgid "62"
+msgstr "۶۲"
+
+#: products/models.py:70
+msgid "64"
+msgstr "۶۴"
+
+#: products/models.py:71
+msgid "66"
+msgstr "۶۶"
+
+#: products/models.py:71
+msgid "68"
+msgstr "۶۸"
+
+#: products/models.py:71
+msgid "70"
+msgstr "۷۰"
+
+#: products/models.py:71
+msgid "72"
+msgstr "۷۲"
+
+#: products/models.py:72
+msgid "74"
+msgstr "۷۴"
+
+#: products/models.py:72
+msgid "76"
+msgstr "۷۶"
+
+#: products/models.py:72
+msgid "78"
+msgstr "۷۸"
+
+#: products/models.py:72
+msgid "80"
+msgstr "۸۰"
+
+#: products/models.py:73
+msgid "82"
+msgstr "۸۲"
+
+#: products/models.py:73
+msgid "84"
+msgstr "۸۴"
+
+#: products/models.py:73
+msgid "86"
+msgstr "۸۶"
+
+#: products/models.py:73
+msgid "88"
+msgstr "۸۸"
+
+#: products/models.py:74
+msgid "90"
+msgstr "۹۰"
+
+#: products/models.py:74
+msgid "92"
+msgstr "۹۲"
+
+#: products/models.py:74
+msgid "94"
+msgstr "۹۴"
+
+#: products/models.py:74
+msgid "96"
+msgstr "۹۶"
+
+#: products/models.py:75
+msgid "98"
+msgstr "۹۸"
+
+#: products/models.py:75
+msgid "100"
+msgstr "۱۰۰"
+
+#: products/models.py:79
+msgid "Product Type"
+msgstr "نوع محصول"
+
+#: products/models.py:81
+msgid "Product Size"
+msgstr "اندازه‌ی محصول"
+
+#: products/models.py:82
 msgid "Class"
 msgstr "کلاس"
 
-#: products/models.py:46
+#: products/models.py:84
 msgid "Connection"
 msgstr "اتصال"
 
-#: products/models.py:48
-msgid "Operation"
-msgstr "عملیات"
+#: products/models.py:85
+msgid "Available Attributes"
+msgstr "ویژگی‌های موجود"
 
 #: templates/admin/base_site.html:14
 msgid "GODAKHTAR"
 msgstr "گداختار"
+
+msgid "Operator"
+msgstr "اوپراتور"
+
+msgid "Central Office"
+msgstr "دفتر مرکزی"
+
+msgid "1*1/2"
+msgstr "۱ X ۱/۲"
+
+msgid "2*1"
+msgstr "۲ X 1"
+
+msgid "3*2"
+msgstr "۳ X ۲"
+
+msgid "4*3"
+msgstr "۴ X ۳"
+
+msgid "6*4"
+msgstr "۶ X ۴"
+
+msgid "8*6"
+msgstr "۸ X ۶"
+
+msgid "10*8"
+msgstr "۱۰ X ۸"
+
+msgid "12*10"
+msgstr "۱۲ X ۱۰"
+
+msgid "14*10"
+msgstr "۱۴ X ۱۰"
+
+msgid "16*12"
+msgstr "۱۶ X ۱۲"
+
+msgid "18*14"
+msgstr "۱۸ X ۱۴"
+
+msgid "20*16"
+msgstr "۲۰ X ۱۶ "
+
+msgid "22*18"
+msgstr "۲۲ X ۱۸"
+
+msgid "24*20"
+msgstr "۲۴ X ۲۰"
+
+msgid "26*22"
+msgstr "۲۶ X ۲۲"
+
+msgid "28*24"
+msgstr "۲۸ X ۲۴"
+
+msgid "30*26"
+msgstr "۳۰ X ۲۶"
+
+msgid "32*26"
+msgstr "۳۲ X ۲۶"
+
+msgid "34*28"
+msgstr "۳۴ X ۲۸"
+
+msgid "36*30"
+msgstr "۳۶ X ۳۰"
+
+msgid "38*32"
+msgstr "۳۸ X ۳۲"
+
+msgid "40*34"
+msgstr "۴۰ X ۳۴"
+
+msgid "42*36"
+msgstr "۴۲ X ۳۶"
+
+msgid "44*38"
+msgstr "۴۴ X ۳۸"
+
+msgid "46*40"
+msgstr "۴۶ X ۴۰"
+
+msgid "48*42"
+msgstr "۴۸ X ۴۲"
+
+msgid "50*44"
+msgstr "۵۰ X ۴۴"
+
+msgid "52*46"
+msgstr "۵۲ X ۴۶"
+
+msgid "54*48"
+msgstr "۵۴ X ۴۸"
+
+msgid "56*50"
+msgstr "۵۶ X ۵۰"
+
+msgid "58*52"
+msgstr "۵۸ X ۵۲"
+
+msgid "60*54"
+msgstr "۶۰ X ۵۴"
+
+msgid "Body Material"
+msgstr "جنس بنده"
+
+msgid "Operation"
+msgstr "عملیات"
 
 msgid "Zero"
 msgstr "صفر"
@@ -1216,10 +968,7 @@ msgid "current theme"
 msgstr "تم فعلی"
 
 msgid "Add another %(verbose_name)s"
-msgstr "افزودن %(verbose_name)s دیگر"
-
-msgid "Change"
-msgstr "تغییر"
+msgstr "افزودن %(verbose_name) دیگر"
 
 msgid "View on site"
 msgstr "نمایش در سایت"
@@ -1228,7 +977,7 @@ msgid "Popup closing..."
 msgstr "بستن پاپ‌آپ"
 
 msgid " By %(filter_title)s "
-msgstr "برپایه %(filter_title)s "
+msgstr "برپایه %(filter_title) "
 
 msgid "Reset"
 msgstr "بازنشانی"
