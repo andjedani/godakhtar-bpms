@@ -45,7 +45,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     def get_object(self):
         product_name = self.kwargs.get('product_name', None)
         if product_name:
-            return get_object_or_404(models.Product, product_name=product_name )
+            product_name = str(product_name).replace('-','/').replace('_',' ')
+            return get_object_or_404(models.Product, product_name=product_name)
         return super().get_object()
 
     def initial(self, request, *args, **kwargs):

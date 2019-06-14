@@ -57,8 +57,8 @@ class Product(models.Model):
         ('TH', _('Threaded')),
         ('LUG', _('Lug')),)
 
-    PRODUCT_SIZE_CHOICES = (('1-4', _('1/4')), ('1-2', _('1/2')), ('3-4', _('3/4')), ('1', _('1')),
-                            ('1_1-2', _('1 1/2')), ('2', _('2')), ('2_1-2', _('2 1/2')), ('3', _('3')),
+    PRODUCT_SIZE_CHOICES = (('1/4', _('1/4')), ('1/2', _('1/2')), ('3/4', _('3/4')), ('1', _('1')),
+                            ('1 1/2', _('1 1/2')), ('2', _('2')), ('2 1/2', _('2 1/2')), ('3', _('3')),
                             ('4', _('4')), ('5', _('5')), ('6', _('6')), ('8', _('8')),
                             ('10', _('10')), ('12', _('12')), ('14', _('14')), ('16', _('16')),
                             ('18', _('18')), ('20', _('20')), ('22', _('22')), ('24', _('24')),
@@ -84,6 +84,10 @@ class Product(models.Model):
     available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'),
                                                   related_name='product', blank=True)
     product_name = models.CharField(max_length=12, verbose_name=_('Product Name'), null=True, blank=True)
+
+    @property
+    def get_product_name(self):
+        return str(self.product_name)
 
     class Meta:
         unique_together = ('product_type', 'product_class', 'product_connection', 'product_size')
