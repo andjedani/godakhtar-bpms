@@ -18,6 +18,21 @@
   display: none !important;
 }
 
-fieldset .field-box {
+fieldset .field-box,
+.form-row > div {
   border: dotted;
+  padding: 1px;
+}
+
+.aligned .vCheckboxLabel {
+  padding: 2px;
+}
+
+body {
+  color: unset;
+}
+
+thead th,
+tfoot td {
+  text-align: unset;
 }

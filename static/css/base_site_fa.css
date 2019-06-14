@@ -70,10 +70,6 @@ body.login #container {
   padding: unset;
 }
 
-.form-row {
-  display: flex;
-}
-
 .inline-related h3 span.delete label:before,
 .inline-related h3 .inline-deletelink label:before {
   float: left;
@@ -82,4 +78,12 @@ body.login #container {
 
 input[type="checkbox"] + label::before {
   padding: 5px;
+}
+
+fieldset .field-box {
+  margin-right: unset;
+  margin-right: unset;
+  margin-left: 20px;
+  margin-left: 1.42857rem;
+  float: right;
 }
