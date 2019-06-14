@@ -13,7 +13,7 @@ router.register(r'attributes', views.AttributeViewSet)
 urlpatterns = [
     url(r'', include(router.urls)),
     url(r'^list/(?P<product_name>[A-Za-z0-9]+)/?$',
-        product_attributes, name='get-product-by-name'),
+        product_by_name, name='get-product-by-name'),
     url(r'^(?P<product_id>[0-9])/attributes/?$',
         product_attributes, name='get-product-attribute'),
     url(r'^types/', views.product_types, name='get-product-types'),
