@@ -192,3 +192,5 @@ JET_THEMES = [
     }
 ]
 JET_SIDE_MENU_COMPACT = True
+
+ALLOWED_HOSTS += ["127.0.0.1"]
