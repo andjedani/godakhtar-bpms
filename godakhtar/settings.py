@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
+    'inquiry',
     'customers',
     'rest_framework',
     'corsheaders',
@@ -190,3 +191,4 @@ JET_THEMES = [
         'title': 'سبز'
     }
 ]
+JET_SIDE_MENU_COMPACT = True

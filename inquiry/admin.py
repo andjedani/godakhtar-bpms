@@ -1,3 +1,9 @@
+# Register your models here.
 from django.contrib import admin
 
-# Register your models here.
+from inquiry.models import Inquiry
+
+
+@admin.register(Inquiry)
+class InquiryAdmin(admin.ModelAdmin):
+    model = Inquiry

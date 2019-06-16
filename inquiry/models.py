@@ -1,14 +1,16 @@
-from django.contrib.postgres import fields
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
+from customers.models import Customer
 
 
 class Inquiry(models.Model):
-    qa_documents = models.CharField(max_length=127)
-    guaranty = models.CharField(max_length=127)
-    warranty = models.CharField(max_length=127)
-    packaging = models.CharField(max_length=127)
-    delivery_address = models.CharField(max_length=255)
-
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name=_('Customer'))
+    qa_documents = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('QA Documents'))
+    guaranty = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Guaranty'))
+    warranty = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Warranty'))
+    packaging = models.CharField(max_length=5, blank=True, null=True, verbose_name=_('Packaging'))
+    delivery_address = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('Delivery Address'))
 
 # PRODUCT_BODY_MATERIAL_CHOICES = (
 #     ('WCB', _('WCB')), ('A105', _('A105')), ('SS304', _('SS304')), ('SS316', _('SS316')), ('CF8', _('CF8')),
