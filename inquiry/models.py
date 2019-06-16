@@ -16,7 +16,7 @@ class Inquiry(models.Model):
 
 class InquiryProducts(models.Model):
     inquiry = models.ForeignKey(Inquiry, on_delete=models.CASCADE, related_name='inquiry_products')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_inquiries')
     quantity = models.PositiveIntegerField(blank=False, null=False)
 # PRODUCT_BODY_MATERIAL_CHOICES = (
 #     ('WCB', _('WCB')), ('A105', _('A105')), ('SS304', _('SS304')), ('SS316', _('SS316')), ('CF8', _('CF8')),

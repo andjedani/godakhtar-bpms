@@ -22,7 +22,8 @@ class InquiryProductsSerializer(serializers.ModelSerializer):
 #
 #
 class InquirySerializer(serializers.ModelSerializer):
-    inquiry_products = InquiryProductsSerializer(many=True)
+    inquiry_products = InquiryProductsSerializer(many=True, read_only=True)
+
     # personnel = PersonnelSerializer(many=True)
     # key_persons = KeyPersonSerializer(many=True)
     # customer = CustomerSerializer
