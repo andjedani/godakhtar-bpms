@@ -1,14 +1,13 @@
 from rest_framework import serializers
 
-from customers.serializers import CustomerSerializer
-from inquiry.models import Inquiry
+from inquiry.models import Inquiry, InquiryProducts
 
 
-# class BranchSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Branch
-#         fields = '__all__'
-#
+class InquiryProductsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InquiryProducts
+        fields = '__all__'
+
 
 # class PersonnelSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -23,7 +22,7 @@ from inquiry.models import Inquiry
 #
 #
 class InquirySerializer(serializers.ModelSerializer):
-    # branchs = BranchSerializer(many=True)
+    inquiry_products = InquiryProductsSerializer(many=True)
     # personnel = PersonnelSerializer(many=True)
     # key_persons = KeyPersonSerializer(many=True)
     # customer = CustomerSerializer

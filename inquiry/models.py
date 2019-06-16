@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from customers.models import Customer
+from products.models import Product
 
 
 class Inquiry(models.Model):
@@ -12,6 +13,11 @@ class Inquiry(models.Model):
     packaging = models.CharField(max_length=5, blank=True, null=True, verbose_name=_('Packaging'))
     delivery_address = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('Delivery Address'))
 
+
+class InquiryProducts(models.Model):
+    inquiry = models.ForeignKey(Inquiry, on_delete=models.CASCADE, related_name='inquiry_products')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(blank=False, null=False)
 # PRODUCT_BODY_MATERIAL_CHOICES = (
 #     ('WCB', _('WCB')), ('A105', _('A105')), ('SS304', _('SS304')), ('SS316', _('SS316')), ('CF8', _('CF8')),
 #     ('CF3', _('CF3')), ('CF8M', _('CF8M')), ('CF3M', _('CF3M')), ('CF8C', _('CF8C')), ('LCB', _('LCB')),
