@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+import customers
 from inquiry.models import Inquiry, InquiryProducts
 
 
@@ -11,6 +12,7 @@ class InquiryProductsSerializer(serializers.ModelSerializer):
 
 class InquirySerializer(serializers.ModelSerializer):
     inquiry_products = InquiryProductsSerializer(many=True, read_only=True)
+    customer = customers.serializers.CustomerSerializer()
 
     class Meta:
         model = Inquiry

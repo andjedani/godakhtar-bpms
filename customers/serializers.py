@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from customers.models import Customer, KeyPerson, Personnel, Branch
 
 
@@ -43,6 +44,13 @@ class CustomerSerializer(serializers.ModelSerializer):
                   "acquainted_recommended",
                   "last_godakhtar_visit", "last_customer_visit",
                   "comments", "verified", "branchs", "personnel", "key_persons")
+        nested_fields = ('id', 'name')
+
+    def get_field_names(self, *args, **kwargs):
+        field_names = super().get_field_names(*args, **kwargs)
+        # if self.parent:
+        #     field_names = self.Meta.nested_fields # [i for i in self.Meta.fields if i not in self.Meta.exclude_when_nested]
+        return field_names
 
 
 class CustomerShortListSerializer(serializers.ModelSerializer):

@@ -97,5 +97,5 @@ class Product(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.product_name = ''.join([self.product_type, self.product_class, self.product_connection, self.product_size])
+        self.product_name = ''.join([self.product_type, self.product_size, self.product_connection, self.product_class])
         super().save()

@@ -152,8 +152,8 @@ class Customer(models.Model):
             if same_customers:
                 serial = int(same_customers[0].customer_no[2:]) + 1
 
-            customer_no_draft = customer_no_draft.upper() + f'{serial:3}'.replace(' ', '0')
-            self.customer_no = customer_no_draft
+        customer_no_draft = customer_no_draft.upper() + f'{serial:3}'.replace(' ', '0')
+        self.customer_no = customer_no_draft
 
         super().save()
 
@@ -167,6 +167,7 @@ PERSONNEL_TYPE_CHOICES = (
     ('t', _('CTO')),
     ('e', _('Engineering Manager')),
     ('m', _('Maintenance Manager')),
+    ('p', _('Project Manager')),
     ('s', _('Expert')),
     ('h', _('Other'))
 )
