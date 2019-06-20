@@ -12,11 +12,14 @@ class InquiryProductsSerializer(serializers.ModelSerializer):
 
 class InquirySerializer(serializers.ModelSerializer):
     inquiry_products = InquiryProductsSerializer(many=True, read_only=True)
-    customer = customers.serializers.CustomerSerializer()
+    customer = customers.serializers.CustomerSerializer(read_only=True)
+
+    customer_id = serializers.PrimaryKeyRelatedField(
+        queryset=customers.models.Customer.objects.all(), source='customer', write_only=True)
 
     class Meta:
         model = Inquiry
-        fields = "__all__"
+        fields = '__all__'
 #                   "last_godakhtar_visit", "last_customer_visit",
 #                   "comments", "verified", "branchs", "personnel", "key_persons")
 #
