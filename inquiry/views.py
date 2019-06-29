@@ -33,7 +33,7 @@ def add_product_to_inquiry(request, inquiry_id):
         resp = {"already_exists": already_exists, "existing_id": qs[0].pk, "existing_quantity": qs[0].quantity}
     else:
         inq_prod = InquiryProducts.objects.create(inquiry=inquiry, product=product, quantity=quantity)
-        resp = {"created": str(created), "added_id": inq_prod.pk, }
+        resp = {"created": str(created), "product_id": product.pk, "added_id": inq_prod.pk, }
     # inq_ser = serializers.InquirySerializer(Inquiry.objects.get(pk=inquiry_id))
     return Response(resp, status.HTTP_200_OK)
 
