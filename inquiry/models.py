@@ -4,6 +4,13 @@ from django.utils.translation import ugettext_lazy as _
 from customers.models import Customer
 from products.models import Product
 
+INQUIRY_GOAL_CHOICES = (('b', _('Buy')), ('t', _('Auction(Tender)')), ('e', _('Estimation')))
+INQUIRY_LEVEL_CHOICES = (('s', _('Small')), ('m', _('Medium')), ('l', _('Large')))
+INQUIRY_SUPPLY_POLICY_CHOICES = (('v', _('Inventory')), ('p', _('Production')), ('i', _('Internal Supply')),
+                                 ('d', _('Product Development')), ('f', _('Foreign Supply')))
+INQUIRY_TYPE_CHOICES = (('v', _('Valve')), ('p', _('Peripheral')), ('s', _('Spare Parts')),
+                        ('e', _('Education')), ('r', _('Repair')))
+
 
 class Inquiry(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE, verbose_name=_('Customer'))
@@ -12,6 +19,8 @@ class Inquiry(models.Model):
     warranty = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Warranty'))
     packaging = models.CharField(max_length=5, blank=True, null=True, verbose_name=_('Packaging'))
     delivery_address = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('Delivery Address'))
+    consultant_name = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Consultant Name'))
+    client_name = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
 
     def __str__(self):
         return self.customer.name

@@ -83,11 +83,11 @@ class Product(models.Model):
                                           verbose_name=_('Connection'))
     available_attributes = models.ManyToManyField(Attribute, verbose_name=_('Available Attributes'),
                                                   related_name='product', blank=True)
-    product_name = models.CharField(max_length=12, verbose_name=_('Product Name'), null=True, blank=True)
+    product_name = models.CharField(max_length=100, verbose_name=_('Product Name'), null=True, blank=True)
 
-    @property
-    def get_product_name(self):
-        return str(self.product_name)
+    # @property
+    # def get_product_name(self):
+    #     return str(self.product_name)
 
     class Meta:
         unique_together = ('product_type', 'product_class', 'product_connection', 'product_size')

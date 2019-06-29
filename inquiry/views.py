@@ -14,9 +14,9 @@ from products.models import Product
 
 @api_view(['POST', ])
 def add_product_to_inquiry(request, inquiry_id):
-    product_type = request.data['product_type']
-    product_size = request.data['product_size']
-    product_class = request.data['product_class']
+    product_type = str(request.data['product_type'])
+    product_size = str(request.data['product_size'])
+    product_class = str(request.data['product_class'])
     product_connection = request.data['product_connection']
     quantity = int(str(request.data['quantity']))
 
@@ -24,6 +24,9 @@ def add_product_to_inquiry(request, inquiry_id):
                                                      product_size=product_size,
                                                      product_class=product_class,
                                                      product_connection=product_connection)
+    if product is None:
+        print("Kire khar")
+
     inquiry = Inquiry.objects.get(pk=inquiry_id)
     InquiryProducts.objects.create(inquiry=inquiry, product=product, quantity=quantity)
     # inq_ser = serializers.InquirySerializer(Inquiry.objects.get(pk=inquiry_id))
