@@ -10,6 +10,17 @@ INQUIRY_SUPPLY_POLICY_CHOICES = (('v', _('Inventory')), ('p', _('Production')), 
                                  ('d', _('Product Development')), ('f', _('Foreign Supply')))
 INQUIRY_TYPE_CHOICES = (('v', _('Valve')), ('p', _('Peripheral')), ('s', _('Spare Parts')),
                         ('e', _('Education')), ('r', _('Repair')))
+INQUIRY_CUSTOMER_PRIORITY_CHOICES = (
+    ('r', _('shipping_ready')),
+    ('p', _('Production')),
+    ('s', _('Supply')),
+    ('f', _('Fast Delivery'))
+)
+INQUIRY_TECH_LEVEL_CHOICES = (
+    ('l', _('Low Tech')),
+    ('m', _('Mid Tech')),
+    ('h', _('High Tech'))
+)
 
 
 class Inquiry(models.Model):
@@ -18,9 +29,17 @@ class Inquiry(models.Model):
     guaranty = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Guaranty'))
     warranty = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Warranty'))
     packaging = models.CharField(max_length=5, blank=True, null=True, verbose_name=_('Packaging'))
-    delivery_address = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('Delivery Address'))
     consultant_name = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('Consultant Name'))
     client_name = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    payment_type = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    delivery_address = models.CharField(max_length=255, blank=True, null=True, verbose_name=_('Delivery Address'))
+    delivery_time = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    vendor_list = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    customer_priority = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    tender_guarantee = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    tech_level = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    other_engineering_requirements = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
+    document_review = models.CharField(max_length=127, blank=True, null=True, verbose_name=_('KARFARMA Name'))
 
     def __str__(self):
         return self.customer.name
@@ -30,7 +49,8 @@ class InquiryProducts(models.Model):
     inquiry = models.ForeignKey(Inquiry, on_delete=models.CASCADE, related_name='inquiry_products')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_inquiries')
     quantity = models.PositiveIntegerField(blank=False, null=False)
-# PRODUCT_BODY_MATERIAL_CHOICES = (
+    unit_price = models.BigIntegerField(blank=True, null=True)
+    # PRODUCT_BODY_MATERIAL_CHOICES = (
 #     ('WCB', _('WCB')), ('A105', _('A105')), ('SS304', _('SS304')), ('SS316', _('SS316')), ('CF8', _('CF8')),
 #     ('CF3', _('CF3')), ('CF8M', _('CF8M')), ('CF3M', _('CF3M')), ('CF8C', _('CF8C')), ('LCB', _('LCB')),
 #     ('LCC', _('LCC')), ('Al-Bronz', _('Al-Bronz')), ('WCC', _('WCC')), ('WC9', _('WC9')), ('WC6', _('WC6')),
