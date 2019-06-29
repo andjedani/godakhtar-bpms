@@ -26,9 +26,15 @@ def add_product_to_inquiry(request, inquiry_id):
                                                      product_connection=product_connection)
 
     inquiry = Inquiry.objects.get(pk=inquiry_id)
-    InquiryProducts.objects.create(inquiry=inquiry, product=product, quantity=quantity)
+    # TODO: Check if this inquiry already has this product or not?
+    qs = InquiryProducts.objects.filter(inquiry=inquiry, product=product)
+    already_exists = (len(qs) > 0)
+    if already_exists:
+        resp = {"already_exists": already_exists, "existing_id": qs[0].pk, "existing_quantity": qs[0].quantity}
+    else:
+        inq_prod = InquiryProducts.objects.create(inquiry=inquiry, product=product, quantity=quantity)
+        resp = {"created": str(created), "added_id": inq_prod.pk, }
     # inq_ser = serializers.InquirySerializer(Inquiry.objects.get(pk=inquiry_id))
-    resp = {"created": str(created)}
     return Response(resp, status.HTTP_200_OK)
 
 
@@ -38,9 +44,10 @@ def delete_product_from_inquiry(request, inquiry_id):
     product = Product.objects.get(pk=product_id)
     inquiry = Inquiry.objects.get(pk=inquiry_id)
     inq_prod = InquiryProducts.objects.get(inquiry=inquiry, product=product)
+    deleting_row_id = inq_prod.pk
     inq_prod.delete()
     # inq_ser = serializers.InquirySerializer(Inquiry.objects.get(pk=inquiry_id))
-    resp = {"deleted": True}
+    resp = {"deleted": True, "deleted_id": deleting_row_id}
     return Response(resp, status.HTTP_200_OK)
 
 
