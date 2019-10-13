@@ -26,7 +26,8 @@ def add_product_to_inquiry(request, inquiry_id):
                                                      product_connection=product_connection)
 
     inquiry = Inquiry.objects.get(pk=inquiry_id)
-    # TODO: Check if this inquiry already has this product or not?
+
+    # Check if this inquiry already has this product or not?
     qs = InquiryProducts.objects.filter(inquiry=inquiry, product=product)
     already_exists = (len(qs) > 0)
     if already_exists:

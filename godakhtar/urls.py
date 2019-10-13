@@ -13,4 +13,5 @@ urlpatterns = i18n_patterns(
     url(r'^api/v0/customers/', include('customers.urls')),
     url(r'^api/v0/products/', include('products.urls')),
     url(r'^api/v0/inquiry/', include('inquiry.urls')),
+    url(r'^accounts/', include('rest_auth.urls')),
 )

@@ -48,12 +48,35 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     'products',
     'inquiry',
     'customers',
+    'sesame',
     'rest_framework',
     'corsheaders',
+    'rest_auth',
 ]
+
+AUTH_USER_MODEL = 'sesame.User'
+AUTHENTICATION_BACKENDS = ('sesame.backends.Auth', 'django.contrib.auth.backends.ModelBackend',)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication', ],
+    # ('sesame.backends.Auth',),
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.BasicAuthentication',
+    #     'rest_framework.authentication.SessionAuthentication',
+    # ],
+    # 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated', ]
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
